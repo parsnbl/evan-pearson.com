@@ -1,9 +1,9 @@
+'use client'
+
 import React from 'react';
 import EmotionRootStyleRegistry from './ThemeRegistry';
+import type { Wrapped } from '../declarations'
 
-interface Wrapped {
-    children: React.ReactNode
-}
 
 export default function RootLayout({ children }: Wrapped) {
     return (
