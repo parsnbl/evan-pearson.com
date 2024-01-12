@@ -2,7 +2,8 @@
 
 import React from 'react';
 import EmotionRootStyleRegistry from './ThemeRegistry';
-import type { Wrapped } from '../declarations'
+import type { Wrapped } from '../declarations';
+import { css } from '@emotion/react';
 
 
 export default function RootLayout({ children }: Wrapped) {
