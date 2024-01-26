@@ -3,7 +3,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import { EmotionJSX } from '@emotion/react/types/jsx-namespace';
-
+import Link from 'next/link';
 import { colors } from '@/styles';
 
 
@@ -33,6 +33,12 @@ const navCSS = css({
     }
   });
 
+{/* 
+<li>Blog</li>
+<li>Sandbox</li>
+<li>Menu</li> 
+*/}
+
 const Header = (): EmotionJSX.Element => {
   return (
     <header css={navContainer}>
@@ -41,13 +47,11 @@ const Header = (): EmotionJSX.Element => {
       </div>
       <nav>
         <ul css={navCSS}>
-          <li>About</li>
-          <li>Work</li>
-          <li>Blog</li>
-          <li>Sandbox</li>
-          <li>Menu</li>
-          <li>Resume</li>
-          <li>Contact</li>
+          <Link href='/'><li>Home</li></Link>
+          <Link href='/about'><li>About</li></Link>
+          <Link href='/projects'><li>Work</li></Link>
+          <Link href={'/assets/EvanPearson_Resume.pdf'}><li>Resume</li></Link>
+          <Link href='/contact'></Link><li>Contact</li>
         </ul>
       </nav>
     </header>

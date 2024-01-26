@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { css } from '@emotion/react';
 
-import npmIcon from '@public/npm.svg'
+
 import { colors, border, activeBorder } from '@/styles';
 import { Github, Globe  } from 'lucide-react';
 import { roboto_condensed, roboto_mono } from '@/fonts';
@@ -82,7 +82,7 @@ const Project = ({
             href={npm}
             target="_blank"
             rel="noreferrer noopener"
-          ><Image src={npmIcon} alt="npm" height={24} css={[border, iconButton, {':active': { filter: 'invert(64%) sepia(82%) saturate(522%) hue-rotate(169deg) brightness(90%) contrast(90%)'}}]}/></a>
+          ><Image src="/assets/npm.svg" alt="npm" height={24} width={24} css={[border, iconButton, {':active': { filter: 'invert(64%) sepia(82%) saturate(522%) hue-rotate(169deg) brightness(90%) contrast(90%)'}}]}/></a>
         );
       }
       return {  descArr, tagsElem, linkArr };

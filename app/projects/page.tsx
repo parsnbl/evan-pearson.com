@@ -13,13 +13,17 @@ import CTA from './components/CTA'
 
 const Page = () => { 
 
+  const projectArr = [];
+  for (const project of projects) {
+    projectArr.push(<Project {...project} />);
+  }
+
   return (
     <>
     <Band>
       <h1>RECENT PROJECTS</h1>
     </Band>
-      <Project {...projects[0]} />
-      <Project {...projects[1]} />
+      {projectArr}
       <CTA />
     </>
   );

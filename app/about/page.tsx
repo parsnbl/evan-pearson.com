@@ -1,10 +1,8 @@
 'use client'
 import React from "react";
 import { css } from '@emotion/react';
-import Image from "next/image";
 
-import { Hand, Star, Server, Ratio, Database, MousePointerClick, CloudLightning, TrendingUp, Dot,  Terminal } from "lucide-react";
-import profilePic from '../../public/EvanGC.jpeg';
+import { Star } from "lucide-react";
 import { colors } from "@/styles";
 
 import Band from "@/components/Band";

@@ -9,7 +9,7 @@ import Project from '@/components/Project';
 
 
 
-export default function Page() {
+export default function Proto() {
   const data = [
     {
       title: 'wave.js',
@@ -38,8 +38,7 @@ export default function Page() {
 
   return (
     <>
-      <Project {...data[0]} />
-      <Project {...data[1]} />
+     
     </>
   );
 }

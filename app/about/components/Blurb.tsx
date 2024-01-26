@@ -6,7 +6,7 @@ import Image from "next/image";
 import Band from "@/components/Band";
 import { Hand } from 'lucide-react';
 import { roboto_condensed } from '@/fonts';
-import profilePic from '@public/EvanGC.jpeg';
+
 
 const blurbBandStyle = css({
   height: 'auto',
@@ -29,9 +29,10 @@ const Blurb = () => {
 
             }}>
               <Image 
-                src={profilePic}
+                src='/assets/EvanGC.jpeg'
                 alt="Picture of the engineer at the grand canyon."
                 height={300}
+                width={300}
 
                 css={{ 
                   borderRadius: '9999px',
