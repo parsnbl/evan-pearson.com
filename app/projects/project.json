@@ -1,0 +1,24 @@
+[
+  {
+    "title": "wave.js",
+    "imageSlug": "wavejs.jpg",
+    "description": [
+      "wave.js is a scalable video live streaming framework, with multi-stream support for real-time RTMP ingest, encoding to HLS and MPEG-DASH, and low-latency live stream delivery.",
+      "Targeted at helping dev teams deploy live streaming applications with greater ease and efficiency, wave.js is an open source server framework for Node.js that features customizable configuration options to tailor video and audio live streams to meet the needs of any professional dev environment."
+    ],
+    "tags": ["NodeJS", "Express", "Socket Servers", "RTMP", "HLS", "MPEG-Dash"],
+    "web": "https://wavejs.live/",
+    "github": "https://github.com/oslabs-beta/wavejs",
+    "npm": "https://www.npmjs.com/package/@wave.js/wave.js"
+  },
+  {
+    "title": "Stager",
+    "imageSlug": "stager.svg",
+    "description": [
+      "An open-source react app for generating gantt charts with a modern interface and focus on customizability.",
+      "Currently being redesigned as an Electron app."
+    ],
+    "tags": ["React", "Redux/RTL", "SaSS", "Electron"],
+    "github": "https://github.com/parsnbl/stager"
+  }
+]

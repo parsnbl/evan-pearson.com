@@ -1,6 +1,9 @@
 'use client'
 import React from 'react';
 import Link from 'next/link';
+import {css, Global} from '@emotion/react';
+
+
 export default function Page() {
     return (
       <div>
@@ -15,6 +18,7 @@ export default function Page() {
             </nav>
           </header>
           <main>
+            <Global styles={{fontFamily: 'sans-serif'}}/>
 
           </main>
           <footer>

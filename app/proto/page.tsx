@@ -1,43 +1,45 @@
 'use client'
 
 import React from 'react';
-import Link from 'next/link';
 import { css } from '@emotion/react';
 
-const border = css({
-  border: '1px solid gray',
-  borderRadius: '0.375rem',
-  boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
-
-})
-
-const centeredModal = css({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'center',
-  height: '100%',
-  width: '100%'
-
-})
+import Band from '@/components/Band';
+import Project from '@/components/Project';
 
 
-
-const style = css({
-  display: 'flex',
-  color: 'red',
-  fontSize: 50
-})
 
 
 export default function Page() {
-    const currentCSS = css([border, style, centeredModal])
+  const data = [
+    {
+      title: 'wave.js',
+      imageSlug: 'wavejs.jpg',
+      description: [
+        'wave.js is a scalable video live streaming framework, with multi-stream support for real-time RTMP ingest, encoding to HLS and MPEG-DASH, and low-latency live stream delivery.',
+        'Targeted at helping dev teams deploy live streaming applications with greater ease and efficiency, wave.js is an open source server framework for Node.js that features customizable configuration options to tailor video and audio live streams to meet the needs of any professional dev environment.'
+      ],
+      tags: ['NodeJS', 'Express', 'Socket Servers', 'RTMP', 'HLS', 'MPEG-Dash'],
+      web: 'https://wavejs.live/',
+      github: 'https://github.com/oslabs-beta/wavejs',
+      npm: 'https://www.npmjs.com/package/@wave.js/wave.js'
+    },
+    {
+      title: 'Stager',
+      imageSlug: 'stager.svg',
+      description: [
+        'An open-source react app for generating gantt charts with a modern interface and focus on customizability.',
+        'Currently being redesigned as an Electron app.'
+      ],
+      tags: ['React', 'Redux/RTL', 'SaSS', 'Electron'],
+      github: 'https://github.com/parsnbl/stager',
+    },
 
+  ]
 
-    return (
-      <div css={currentCSS} >
-         <p>Hello!</p>
-      </div>
-
-    );
+  return (
+    <>
+      <Project {...data[0]} />
+      <Project {...data[1]} />
+    </>
+  );
 }
