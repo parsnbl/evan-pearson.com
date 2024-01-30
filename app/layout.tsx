@@ -5,6 +5,9 @@ import EmotionRootStyleRegistry from './ThemeRegistry';
 import type { Wrapped } from '../declarations';
 import { css } from '@emotion/react';
 
+import MinimalWrapper from '@/components/MinimalWrapper';
+import { Wrapped } from '../../declarations';
+
 
 import { roboto_flex } from './fonts';
 
@@ -24,7 +27,9 @@ export default function RootLayout({ children }: Wrapped) {
             <body css={fullSize} className={roboto_flex.className}>
                 <EmotionRootStyleRegistry>
                     <Header />
-                    {children}
+                    <MinimalWrapper>
+                        {children}
+                    </MinimalWrapper>
                 </EmotionRootStyleRegistry>
             </body>
         </html>

@@ -45,7 +45,7 @@ const Blurb = () => {
                   alignItems: 'center',
                   margin: '.5em 0em'
                 }}>
-                  <Hand /><h2 className={roboto_condensed.className}>&nbsp;HEY THERE!</h2>
+                  <Hand /><h1 className={roboto_condensed.className}>&nbsp;HEY THERE!</h1>
                 </div>
                 <p>
                   My name is Evan Pearson and I'm a <span css={{fontWeight: 'bold'}}>full-stack software engineer</span>. From performant SPAs to eCommerce that converts, I make cool things throughout the stack. I'm bullish on the Internet, Entertainment, and Video Gaming. 

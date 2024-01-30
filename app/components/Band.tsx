@@ -5,12 +5,7 @@ import { SerializedStyles, css } from '@emotion/react';
 import { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import { colors, border, container } from '@/styles';
 
-
-interface StyledWrapped {
-  children: React.ReactNode,
-  cssStyles?: SerializedStyles | null
-}
-
+import { StyledWrapped } from '../../declarations';
 
 const band = css({
   //border: '1px solid black',

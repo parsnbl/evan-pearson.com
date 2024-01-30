@@ -8,7 +8,7 @@ import { colors } from "@/styles";
 import Band from "@/components/Band";
 import Blurb from '@/about/components/Blurb';
 import Languages from '@/about/components/Languages';
-import CTA from '@/about/components/CTA';
+import CTA from '@/components/CTA';
 import { 
   Frontend, 
   Backend, 
@@ -17,6 +17,8 @@ import {
   Cloud, 
   Growth 
 } from '@/about/components/Skills';
+
+import SkillSWrapper from "./components/SkillsWrapper";
 
 
 import { roboto_condensed } from '../fonts';
@@ -50,16 +52,14 @@ const Page = () => {
             </div>
           </Band>
           <Languages />
-          <Band cssStyles={css({paddingTop: '0px'})}>
-            <div css={twoColumn}>
-              <Frontend />
-              <Backend />
-              <Data />
-              <Martech />
-              <Cloud />
-              <Growth />
-            </div>
-          </Band>
+          <SkillSWrapper>
+            <Frontend />
+            <Backend />
+            <Data />
+            <Martech />
+            <Cloud />
+            <Growth />
+          </SkillSWrapper>
           <CTA />
         </>
   );
