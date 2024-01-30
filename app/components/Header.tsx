@@ -51,7 +51,7 @@ const Header = (): EmotionJSX.Element => {
           <Link href='/about'><li>About</li></Link>
           <Link href='/projects'><li>Work</li></Link>
           <Link href={'/assets/EvanPearson_Resume.pdf'}><li>Resume</li></Link>
-          <Link href='/contact'></Link><li>Contact</li>
+          <Link href='/contact'><li>Contact</li></Link>
         </ul>
       </nav>
     </header>

@@ -2,11 +2,11 @@
 
 import React from 'react';
 import { css } from '@emotion/react';
-
+import Link from 'next/link';
 import Band from '@/components/Band';
 import Project from '@/components/Project';
 
-import { roboto_condensed } from '@/fonts';
+import { roboto_condensed, roboto_flex } from '@/fonts';
 
 import { useFormik } from 'formik';
 
@@ -15,6 +15,8 @@ import { colors } from '@/styles';
 
 const MAX_SUBJECT_LENGTH = 140;
 const MAX_BODY_LENGTH = 2083;
+
+
 
 
 const validate = values => {
@@ -39,6 +41,25 @@ const validate = values => {
 
   return errors;
 };
+
+const inputDiv = css({
+  width: '100%',
+  '& input': {
+    width: 'calc(100% - 22px)',
+    padding: '10px',
+    outline: 'none',
+    border: '1px solid black',
+    borderRadius: '5px'
+  },
+  '& textarea': {
+    width: 'calc(100% - 22px)',
+    padding: '10px',
+    outline: 'none',
+    border: '1px solid black',
+    borderRadius: '5px',
+    resize: 'none',
+  }
+});
 
 
 interface Values {
@@ -68,20 +89,25 @@ export default function Proto() {
       height: '150px',
       marginBottom: '1em'
     },
-    '& button': {
-      alignSelf: 'flex-end',
-      backgroundColor: colors.white,
-      fontSize: '1em',
-      fontFamily: roboto_condensed.style,
-      fontWeight: 'bolder',
-      borderRadius: '5px',
-      '& :hover': {
-        color: colors.pictonBlue
-      },
-    }
 
   });
-  
+
+  const buttonStyle = css({
+    alignSelf: 'flex-end',
+    backgroundColor: colors.white,
+    fontSize: '1em',
+    fontFamily: roboto_condensed.style,
+    fontWeight: 'bolder',
+    borderRadius: '5px',
+    ':hover': {
+      color: colors.pictonBlue
+    },
+    ':active': {
+      backgroundColor: colors.black
+    }
+  });
+
+  const errorText = css({fontSize: '.8em', color: 'red'});
   
   const formik = useFormik({
     initialValues: {
@@ -105,41 +131,57 @@ export default function Proto() {
       </Band>
       <Band cssStyles={bandStyle}>
         <form onSubmit={formik.handleSubmit} css={formStyle}>
-          {/*<label htmlFor="subject">Subject</label>*/}
-          <input 
-            id="subject" 
-            name="subject" 
-            type="text"
-            placeholder="Subject"
-            onChange={formik.handleChange}
-            value={formik.values.subject}
-          />
-          {formik.errors.subject ? <div>{formik.errors.subject}</div> : null}
-
-          {/* <label htmlFor="email">Email</label> */}
-          <input 
-            id="email" 
-            name="email" 
-            type="email"
-            placeholder="Email"
-            onChange={formik.handleChange}
-            value={formik.values.email}
-          />
-          {formik.errors.email ? <div>{formik.errors.email}</div> : null}
-
-          {/* <label htmlFor="body">Body</label> */}
-          <textarea 
-            id="body" 
-            name="body" 
-            placeholder="Body"
-
-            onChange={formik.handleChange}
-            value={formik.values.body}
-          />
-          {formik.errors.body ? <div>{formik.errors.body}</div> : null}
-
-          <button type="submit">SEND MESSAGE</button>
+          <div css={inputDiv}>
+            <input 
+              id="subject" 
+              name="subject" 
+              type="text"
+              placeholder="Subject"
+              onChange={formik.handleChange}
+              value={formik.values.subject}
+            />
+          </div>
+          <div css={inputDiv}>
+            <input 
+              id="email" 
+              name="email" 
+              type="email"
+              placeholder="Email"
+              onChange={formik.handleChange}
+              value={formik.values.email}
+            />
+          </div>
+          <div css={inputDiv}>
+            <textarea 
+              id="body" 
+              name="body" 
+              placeholder="Body"
+              onChange={formik.handleChange}
+              value={formik.values.body}
+              className={roboto_flex.className}
+              css={{padding: '.2em'}}
+            />
+          </div>
+          <div css={[inputDiv, {display: 'flex', justifyContent: 'flex-end'}]}>
+            <button type="submit" css={buttonStyle}>SEND MESSAGE</button>
+          </div>
+          {/* Errors */}
+          <div css={{position: 'absolute', top: '237px', left: '900px'}}>
+            {formik.errors.subject ? <div css={errorText}>{formik.errors.subject}</div> : null}
+          </div>
+          <div css={{position: 'absolute', top: '290px', left: '900px'}}>
+            {formik.errors.email ? <div css={errorText}>{formik.errors.email}</div> : null}
+          </div>
+          <div css={{position: 'absolute', top: '340px', left: '900px'}}>
+            {formik.errors.body ? <div css={errorText}>{formik.errors.body}</div> : null}
+          </div>
         </form>
+
+      </Band>
+      <Band cssStyles={bandStyle}>
+        <p>Thank you for reaching out! We'll chat soon!</p>
+        <Link href="/">◂ Home</Link>
+
       </Band>
     </>    
     
