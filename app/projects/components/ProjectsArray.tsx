@@ -13,7 +13,7 @@ const ProjectArray = ({filterCallback}: {filterCallback?: filterCallback}) => {
   const subset = filterCallback? projects.filter(filterCallback): projects;
 
   for (const project of subset) {
-    projectArr.push(<Project {...project} />);
+    projectArr.push(<Project {...project} key={crypto.randomUUID()}/>);
   }
   return (
     <>

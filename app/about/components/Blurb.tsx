@@ -35,8 +35,8 @@ const Blurb = () => {
                 width={300}
 
                 css={{ 
-                  borderRadius: '9999px',
-                  paddingRight: '1em'
+                  borderRadius: '15px',
+                  marginRight: '1em'
                 }}
               />
               <div>
