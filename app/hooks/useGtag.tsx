@@ -10,6 +10,7 @@ import React, { useEffect, useState } from 'react';
 // gtag('config', 'TAG_ID');
 
 // https://github.com/vercel/next.js/blob/canary/packages/third-parties/src/google/gtm.tsx
+//https://developers.google.com/tag-platform/gtagjs/routing
 
 
 const useGtag = (tagID: string dataLayerName: string = 'dataLayer') => {
@@ -19,7 +20,7 @@ const useGtag = (tagID: string dataLayerName: string = 'dataLayer') => {
 
   const updateRegisteredConfig = (gtagID: string, groups) => {
     setRegisteredConfigs({
-      
+
     })
   }
 

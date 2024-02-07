@@ -16,6 +16,8 @@ import Header from '@/components/Header';
 const fullSize = css({
     width: '100%',
     height: '100%',
+    marginLeft: '0px',
+    marginRight: '0px'
 })
 
 
@@ -27,9 +29,7 @@ export default function RootLayout({ children }: Wrapped) {
             <body css={fullSize} className={roboto_flex.className}>
                 <EmotionRootStyleRegistry>
                     <Header />
-                    <MinimalWrapper>
-                        {children}
-                    </MinimalWrapper>
+                    {children}
                 </EmotionRootStyleRegistry>
             </body>
         </html>

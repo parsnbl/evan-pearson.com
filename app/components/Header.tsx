@@ -6,6 +6,9 @@ import { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import Link from 'next/link';
 import { colors } from '@/styles';
 
+import { FlameKindling, Code, Zap, Target } from 'lucide-react';
+
+import { roboto_condensed } from '@/fonts';
 
 const navContainer = css({
   display: 'flex',
@@ -29,7 +32,21 @@ const navCSS = css({
     listStyle: 'none',
     margin: '0px',
     '& li': {
-      padding: '0px 10px'
+      padding: '0px 10px',
+     
+    },
+    '& a': {
+      textDecoration: 'none',
+      ':visited': {
+        color: colors.black
+      },
+      ':hover': {
+        outline: `1px solid ${colors.pictonBlue}`
+      },
+      ':active': {
+        backgroundColor: colors.black,
+        color: colors.white
+      }
     }
   });
 
@@ -43,15 +60,18 @@ const Header = (): EmotionJSX.Element => {
   return (
     <header css={navContainer}>
       <div>
-        <h1>Evan Pearson</h1>
+      <FlameKindling />
+            <Zap />
+            <Code />
+            <Target />
       </div>
       <nav>
         <ul css={navCSS}>
-          <Link href='/'><li>Home</li></Link>
-          <Link href='/about'><li>About</li></Link>
-          <Link href='/projects'><li>Work</li></Link>
-          <Link href={'/assets/EvanPearson_Resume.pdf'}><li>Resume</li></Link>
-          <Link href='/contact'><li>Contact</li></Link>
+          <Link href='/'><li className={roboto_condensed.className}>HOME</li></Link>
+          <Link href='/about'><li className={roboto_condensed.className}>ABOUT</li></Link>
+          <Link href='/projects'><li className={roboto_condensed.className}>WORK</li></Link>
+          <Link href={'/assets/EvanPearson_Resume.pdf'}><li className={roboto_condensed.className}>RESUME</li></Link>
+          <Link href='/contact'><li className={roboto_condensed.className}>CONTACT</li></Link>
         </ul>
       </nav>
     </header>
