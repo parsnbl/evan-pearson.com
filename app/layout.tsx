@@ -5,11 +5,10 @@ import EmotionRootStyleRegistry from './ThemeRegistry';
 import type { Wrapped } from '../declarations';
 import { css } from '@emotion/react';
 
-import MinimalWrapper from '@/components/MinimalWrapper';
-import { Wrapped } from '../../declarations';
 
 
-import { roboto_flex } from './fonts';
+
+import { roboto_flex } from './styles';
 
 import Header from '@/components/Header';
 

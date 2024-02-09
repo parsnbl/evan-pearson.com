@@ -6,7 +6,7 @@ import Link from 'next/link';
 import Band from '@/components/Band';
 import Project from '@/components/Project';
 
-import { roboto_condensed, roboto_flex } from '@/fonts';
+import { roboto_condensed, roboto_flex } from '@/styles';
 
 import { useFormik } from 'formik';
 
@@ -42,7 +42,7 @@ const validate = values => {
   return errors;
 };
 
-const inputDiv = css({
+const inputDiv = {
   width: '100%',
   '& input': {
     width: 'calc(100% - 22px)',
@@ -59,7 +59,7 @@ const inputDiv = css({
     borderRadius: '5px',
     resize: 'none',
   }
-});
+};
 
 
 interface Values {
@@ -70,15 +70,14 @@ interface Values {
 
 export default function Proto() {
   
-  const bandStyle = css({
+  const bandStyle = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     border: '1px solid black',
-   
-  });
+  };
 
-  const formStyle = css({
+  const formStyle = {
     display: 'flex',
     width: '500px',
     flexDirection: 'column',
@@ -90,9 +89,9 @@ export default function Proto() {
       marginBottom: '1em'
     },
 
-  });
+  };
 
-  const buttonStyle = css({
+  const buttonStyle = {
     alignSelf: 'flex-end',
     backgroundColor: colors.white,
     fontSize: '1em',
@@ -105,9 +104,9 @@ export default function Proto() {
     ':active': {
       backgroundColor: colors.black
     }
-  });
+  };
 
-  const errorText = css({fontSize: '.8em', color: 'red'});
+  const errorText = {fontSize: '.8em', color: 'red'};
   
   const formik = useFormik({
     initialValues: {
@@ -123,13 +122,13 @@ export default function Proto() {
 
   return (
     <>
-      <Band cssStyles={bandStyle}>
+      <Band outerCSS={bandStyle}>
         <div css={{textAlign: 'start', width: '500px'}}>
           <h2>CONTACT</h2>
           <p>Get in touch!</p>
         </div>
       </Band>
-      <Band cssStyles={bandStyle}>
+      <Band outerCSS={bandStyle}>
         <form onSubmit={formik.handleSubmit} css={formStyle}>
           <div css={inputDiv}>
             <input 
@@ -178,7 +177,7 @@ export default function Proto() {
         </form>
 
       </Band>
-      <Band cssStyles={bandStyle}>
+      <Band outerCSS={bandStyle}>
         <p>Thank you for reaching out! We'll chat soon!</p>
         <Link href="/">◂ Home</Link>
 

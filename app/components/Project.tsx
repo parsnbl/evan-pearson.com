@@ -5,28 +5,28 @@ import Image from 'next/image';
 import { css } from '@emotion/react';
 
 
-import { colors, border, activeBorder } from '@/styles';
+import { colors, border, activeBorder, roboto_condensed, roboto_mono } from '@/styles';
 import { Github, Globe  } from 'lucide-react';
-import { roboto_condensed, roboto_mono } from '@/fonts';
+
 
 import Band from '@/components/Band';
 
-const band = css({
+const band = {
   //border: '1px solid black',
   '& h2': {
     marginTop: '0px'
   }
-});
+};
 
-const iconButton = css({
+const iconButton = {
   color: colors.black,
   ':hover': activeBorder,
   ':active': {
     color: colors.pictonBlue
   }
-});
+};
 
-
+css()
 
 
 interface ProjectData {
@@ -49,7 +49,7 @@ const Project = ({
       let tagsElem = ''
       const linkArr = [];
       for (const line of description) {
-        descArr.push(<p>{line}</p>);
+        descArr.push(<p key={crypto.randomUUID()}>{line}</p>);
       }
       for (let i = 0; i < tags.length; i++) {
         tagsElem += tags[i].toUpperCase();
@@ -62,6 +62,7 @@ const Project = ({
         linkArr.push(
           <a 
             href={web}
+            key={crypto.randomUUID()}
             target="_blank"
             rel="noreferrer noopener"
           ><Globe css={[border, iconButton, {marginRight: '.5em'}]}/></a>
@@ -71,6 +72,7 @@ const Project = ({
         linkArr.push(
           <a
             href={github}
+            key={crypto.randomUUID()}
             target="_blank"
             rel="noreferrer noopener"
           ><Github css={[border, iconButton, {marginRight: '.5em'}]}/></a>
@@ -80,6 +82,7 @@ const Project = ({
         linkArr.push(
           <a 
             href={npm}
+            key={crypto.randomUUID()}
             target="_blank"
             rel="noreferrer noopener"
           ><Image src="/assets/npm.svg" alt="npm" height={24} width={24} css={[border, iconButton, {':active': { filter: 'invert(64%) sepia(82%) saturate(522%) hue-rotate(169deg) brightness(90%) contrast(90%)'}}]}/></a>
@@ -93,7 +96,7 @@ const Project = ({
     
 
     return (
-              <Band cssStyles={band}>
+              <Band outerCSS={band}>
                 <h2 className={roboto_condensed.className}>{title}</h2>
                 <div css={css({
                   display: 'flex',

@@ -6,8 +6,8 @@ import { css } from '@emotion/react';
 
 import Link from 'next/link';
 
-import { roboto_condensed, roboto_flex } from '@/fonts';
-import { colors } from '@/styles';
+
+import { colors, roboto_condensed, roboto_flex } from '@/styles';
 
 import Band from '@/components/Band';
 import mail from '../hooks/mail';
@@ -21,21 +21,19 @@ interface Values {
   body: string;
 }
 
-const bandStyle = css({
+const bandStyle = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+};
 
- 
-});
-
-const formStyle = css({
+const formStyle = {
   display: 'flex',
   width: '500px',
   flexDirection: 'column',
-});
+};
 
-const buttonStyle = css({
+const buttonStyle = {
   alignSelf: 'flex-end',
   backgroundColor: colors.white,
   fontSize: '1em',
@@ -48,7 +46,7 @@ const buttonStyle = css({
   ':active': {
     backgroundColor: colors.black
   }
-});
+};
 
 const errorText = css({fontSize: '.8em', color: 'red', marginBottom: '.7em'});
 
@@ -123,14 +121,14 @@ const ContactForm = () => {
   });
   if (submitSuccess) {
     return (
-      <Band cssStyles={[bandStyle,]}>
+      <Band outerCSS={bandStyle}>
         <p css={{textAlign: 'start', width: '500px'}}>Thank you for reaching out! We'll chat soon!</p>
         <div css={{textAlign: 'end', width: '500px'}}><Link href="/">◂ Home</Link></div>
       </Band>
     );
     } else {
       return (
-        <Band cssStyles={[bandStyle, {paddingTop: '0px'}]}>
+        <Band outerCSS={Object.assign(bandStyle, {paddingTop: '0px'})}>
           <form onSubmit={formik.handleSubmit} css={formStyle}>
             <div css={inputDiv}>
               <input 

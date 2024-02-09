@@ -4,11 +4,10 @@ import React from 'react';
 import { css } from '@emotion/react';
 import { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 import Link from 'next/link';
-import { colors } from '@/styles';
+import { colors, roboto_condensed } from '@/styles';
 
 import { FlameKindling, Code, Zap, Target } from 'lucide-react';
 
-import { roboto_condensed } from '@/fonts';
 
 const navContainer = css({
   display: 'flex',
@@ -59,15 +58,16 @@ const navCSS = css({
 const Header = (): EmotionJSX.Element => {
   return (
     <header css={navContainer}>
-      <div>
-      <FlameKindling />
+      <Link href='/'><div>
+        <FlameKindling />
             <Zap />
             <Code />
             <Target />
       </div>
+      </Link>
       <nav>
         <ul css={navCSS}>
-          <Link href='/'><li className={roboto_condensed.className}>HOME</li></Link>
+        
           <Link href='/about'><li className={roboto_condensed.className}>ABOUT</li></Link>
           <Link href='/projects'><li className={roboto_condensed.className}>WORK</li></Link>
           <Link href={'/assets/EvanPearson_Resume.pdf'}><li className={roboto_condensed.className}>RESUME</li></Link>

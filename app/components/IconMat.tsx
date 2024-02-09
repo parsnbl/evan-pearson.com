@@ -5,7 +5,15 @@ import { css } from '@emotion/react';
 import { Laugh } from 'lucide-react';
 import { colors } from './styles';
 
-const IconMat = () => {
+import { Dimensions } from '@/hooks/useDimensions';
+
+
+interface IconMatCustomization {
+  dim: Dimensions
+}
+
+const IconMat = ({ dim }: IconMatCustomization) => {
+  console.log('dim from icon mat', dim)
   return (
     <>
     <div css={{

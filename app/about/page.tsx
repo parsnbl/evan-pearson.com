@@ -3,7 +3,7 @@ import React from "react";
 import { css } from '@emotion/react';
 
 import { Star } from "lucide-react";
-import { colors } from "@/styles";
+import { colors, roboto_condensed } from "@/styles";
 
 import Band from "@/components/Band";
 import Blurb from '@/about/components/Blurb';
@@ -21,7 +21,6 @@ import {
 import SkillSWrapper from "./components/SkillsWrapper";
 
 
-import { roboto_condensed } from '../fonts';
 
 const Page = () => {
 
@@ -46,7 +45,7 @@ const Page = () => {
   return (
         <>
           <Blurb />
-          <Band cssStyles={css({paddingTop: '0px', paddingBottom: '0px'})}>
+          <Band outerCSS={{paddingTop: '0px', paddingBottom: '0px'}}>
             <div css={skillsHeader} className={roboto_condensed.className} style={{margin: '0px', padding: '0px'}}>
               <Star /><h1>THINGS I'M GOOD AT</h1>
             </div>

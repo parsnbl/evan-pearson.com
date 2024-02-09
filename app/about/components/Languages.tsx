@@ -4,16 +4,16 @@ import { css } from '@emotion/react';
 
 import Band from "@/components/Band";
 import {Terminal } from "lucide-react";
-import { roboto_condensed, roboto_mono } from '@/fonts';
+import { roboto_condensed, roboto_mono } from '@/styles';
 
-const bandStyle = css({
+const bandStyle = {
   paddingTop: '0px', 
   paddingBottom: '0px', 
   display: 'flex', 
   alignItems: 'center'
-});
+};
 
-const headerStyle = css({
+const headerStyle = {
   display: 'flex',
   alignItems: 'center',
   margin: '0em 0em',
@@ -26,11 +26,11 @@ const headerStyle = css({
     textAlign: 'right',
     paddingRight: '1em'
   }
-})
+}
 
 const Languages = () => {
   return (
-    <Band cssStyles={bandStyle}>
+    <Band outerCSS={bandStyle}>
       <div css={headerStyle} className={roboto_condensed.className}>
         <Terminal />
         <h3 style={{borderRight: '1px solid black', paddingRight: '.25em'}}>

@@ -3,10 +3,7 @@ import React from "react";
 import { css } from '@emotion/react';
 
 import { Server, Ratio, Database, MousePointerClick, CloudLightning, TrendingUp } from "lucide-react";
-import { colors } from "@/styles";
-
-
-import { roboto_condensed } from '@/fonts';
+import { colors, roboto_condensed } from "@/styles";
 
 const listHeader = css({
   display: 'flex',

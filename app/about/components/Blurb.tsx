@@ -5,15 +5,15 @@ import Image from "next/image";
 
 import Band from "@/components/Band";
 import { Hand } from 'lucide-react';
-import { roboto_condensed } from '@/fonts';
+import { roboto_condensed } from '@/styles';
 
 
-const blurbBandStyle = css({
+const blurbBandStyle = {
   height: 'auto',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-});
+};
 
 
 
@@ -22,7 +22,7 @@ const Blurb = () => {
 
 
   return (
-    <Band cssStyles={blurbBandStyle}>
+    <Band outerCSS={blurbBandStyle}>
             <div css = {{
               display: 'flex',
               alignItems: 'center'

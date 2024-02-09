@@ -9,7 +9,7 @@ import Project from '@/components/Project';
 
 import { Github, Linkedin } from 'lucide-react';
 
-import { roboto_condensed, roboto_flex } from '@/fonts';
+import { roboto_condensed, roboto_flex } from '@/styles';
 
 import { useFormik } from 'formik';
 
@@ -26,17 +26,16 @@ const MAX_BODY_LENGTH = 2083;
 
 export default function Proto() {
   
-  const bandStyle = css({
+  const bandStyle = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-   
-  });
+  };
 
 
   return (
     <>
-      <Band cssStyles={bandStyle}>
+      <Band outerCSS={bandStyle}>
         <div css={{textAlign: 'start', width: '500px'}}>
           <div css={{display: 'flex', alignItems: 'center', justifyContent: 'flex-end', marginBottom: '1em'}}>
             <h2 css={{margin: '0px', flexGrow: 1}}>CONTACT</h2>

@@ -4,7 +4,7 @@ import { css } from '@emotion/react'
 import Link from "next/link";
 
 import Band from "@/components/Band";
-import { roboto_condensed } from '@/fonts';
+import { roboto_condensed } from '@/styles';
 
 
 const CTA = () => {
