@@ -14,17 +14,25 @@ const Hero = ({ iconMatDim }: HeroCustomization) => {
   return (
     <div css={{
       width: 'calc(100vw + 50px)',
-      height: 'inherit',
-      display: 'flex'
+      height: '100%',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'flex-end',
+      position: 'relative'
     }}>
     <div
       css={{
-        padding: '60px 0px 0px 20px',
+        padding: '20px 0px 20px 20px',
+        
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center',
+        height: 'fit-content',
+        justifyContent: 'flex-end',
+        backgroundColor: colors.white,
         maxWidth: '750px',
         fontSize: '34px',
+        position: 'relative',
+        zIndex: 100,
         '& p': { margin: '0px' },
         '& br': { margin: '0px' },
       }}
