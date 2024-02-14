@@ -19,6 +19,10 @@ const fullSize = css({
     marginRight: '0px'
 })
 
+const htmlCSS = css({
+    fontFamily: roboto_flex.variable
+})
+
 
 
 export default function RootLayout({ children }: Wrapped) {

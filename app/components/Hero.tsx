@@ -4,7 +4,16 @@ import React from 'react'
 
 import { colors, roboto_mono } from '@/styles';
 import { Dimensions } from '@/hooks/useDimensions';
-import IconMat from './IconMat';
+import dynamic from 'next/dynamic';
+import laugh from '@public/assets/laugh.svg'
+
+const DynamicIconMat = dynamic(()=> import('./IconMat').then((res) => {
+  console.log('loaded');
+  return res;
+}), {
+  ssr: false
+})
+
 
 interface HeroCustomization {
   iconMatDim?: Dimensions
@@ -18,12 +27,14 @@ const Hero = ({ iconMatDim }: HeroCustomization) => {
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'flex-end',
-      position: 'relative'
+      position: 'relative',
+     
+
     }}>
     <div
       css={{
         padding: '20px 0px 20px 20px',
-        
+        border: `1px solid ${colors.platinum}`,
         display: 'flex',
         flexDirection: 'column',
         height: 'fit-content',
@@ -97,7 +108,7 @@ const Hero = ({ iconMatDim }: HeroCustomization) => {
         <span css={{ color: colors.pictonBlue }}>pop</span>.
       </p>
     </div>
-    <IconMat dim={iconMatDim}/>
+    
   </div>
   );
 }

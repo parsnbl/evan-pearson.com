@@ -12,8 +12,9 @@ const ProjectArray = ({filterCallback}: {filterCallback?: filterCallback}) => {
   const projectArr = [];
   const subset = filterCallback? projects.filter(filterCallback): projects;
 
-  for (const project of subset) {
-    projectArr.push(<Project {...project} key={crypto.randomUUID()}/>);
+  for (let i = 0; i < subset.length; i++) {
+    const projectElem = subset[i]
+    projectArr.push(<Project {...projectElem} key={`projectArr_${i}`}/>);
   }
   return (
     <>

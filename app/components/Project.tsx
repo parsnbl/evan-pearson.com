@@ -96,7 +96,7 @@ const Project = ({
     
 
     return (
-              <Band outerCSS={band}>
+              <div css={band}>
                 <h2 className={roboto_condensed.className}>{title}</h2>
                 <div css={css({
                   display: 'flex',
@@ -128,7 +128,7 @@ const Project = ({
                     </div>
                   </div>
                 </div>
-              </Band>
+              </div>
     );
 };
 

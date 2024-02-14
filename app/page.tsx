@@ -1,29 +1,59 @@
 'use client';
 import React from 'react';
-import Link from 'next/link';
-import { css, Global } from '@emotion/react';
+
 
 import { colors, roboto_mono } from '@/styles';
-import Blurb from './about/components/Blurb';
+
 import Band from './components/Band';
 import ProjectArray from './projects/components/ProjectsArray';
 import SkillsWrapper from './about/components/SkillsWrapper';
 import { Frontend, Backend, Cloud, Growth } from './about/components/Skills';
 import CTA from './components/CTA';
-import IconMat from './components/IconMat';
+
 
 import Hero from './components/Hero';
 
-import { Laugh } from 'lucide-react';
+
 
 import { CustomRef, Dimensions } from './hooks/useDimensions';
-
-import MinimalWrapper from './components/MinimalWrapper';
-
 import useDimensions from './hooks/useDimensions';
 
+import laugh from '@public/assets/laugh.svg'
+import atom from '@public/assets/atom.svg'
+import audiowaveform from '@public/assets/audio-waveform.svg'
+import bugoff from '@public/assets/bug-off.svg'
+import gauge from '@public/assets/gauge.svg'
+import handmetal from '@public/assets/hand-metal.svg'
+import mountain from '@public/assets/mountain.svg'
+import palmtree from '@public/assets/palmtree.svg'
+import rocket from '@public/assets/rocket.svg'
+import star from '@public/assets/star.svg'
+import sun from '@public/assets/sun.svg'
+import tenttree from '@public/assets/tent-tree.svg'
+import thumbsup from '@public/assets/thumbs-up.svg'
+import wrench from '@public/assets/wrench.svg'
+
+const svgs = [
+  laugh,
+  atom,
+  audiowaveform,
+  bugoff,
+  gauge,
+  handmetal,
+  mountain,
+  palmtree,
+  rocket,
+  star,
+  sun,
+  tenttree,
+  thumbsup,
+  wrench
+]
+
+const randomSVG = svgs[Math.floor(Math.random() * svgs.length)];
+
+
 const heroBandOuterCSS = {
-  border: '1px dashed black',
   height: '60vh',
   display: 'flex',
   width: 'calc(100vw - 18px)',
@@ -32,32 +62,52 @@ const heroBandOuterCSS = {
   overflowY: 'hidden',
   overflowX: 'hidden',
   minHeight: '368px',
+  backgroundImage: `url(${randomSVG.src})`,
+  backgroundRepeat: 'repeat',
+  backgroundAttachment: 'fixed'
+
 };
+
+const elevatorPitchOuterCSS = {
+  borderTop: `1px solid ${colors.platinum}`,
+  borderBottom: `1px solid ${colors.platinum}`,
+  boxShadow: `0px -1px 1px lightgray`
+}
+
+const projectsBandInnerCSS = {
+
+}
+
+const skillsBandOuterCSS = {
+
+}
 
 export default function Page() {
   const [heroBandRef, heroBandDim]: 
     [heroBandRef: CustomRef, heroBandDim: Dimensions] = useDimensions();
-
-
 
   return (
     <>
       <Band innerRef={heroBandRef} outerCSS={heroBandOuterCSS}>
         <Hero iconMatDim={heroBandDim}/>
       </Band>
-      <Band>
-        <h2>FEATURED PROJECTS</h2>
+      <Band outerCSS={elevatorPitchOuterCSS}>
+        I'm a person
       </Band>
-      <ProjectArray filterCallback={(elem) => elem.title === 'wave.js'} />
+      <Band innerCSS={projectsBandInnerCSS}>
+        <h2>FEATURED PROJECTS</h2>
+        <ProjectArray filterCallback={(elem) => elem.title === 'wave.js'} />
+      </Band>
       <Band>
         <h2>SKILLS</h2>
+        <SkillsWrapper columnStyles={{ gridTemplateRows: 'repeat(2, 1fr)' }}>
+          <Frontend />
+          <Backend />
+          <Cloud />
+          <Growth />
+        </SkillsWrapper>
       </Band>
-      <SkillsWrapper columnStyles={{ gridTemplateRows: 'repeat(2, 1fr)' }}>
-        <Frontend />
-        <Backend />
-        <Cloud />
-        <Growth />
-      </SkillsWrapper>
+      
       <CTA />
     </>
   );
