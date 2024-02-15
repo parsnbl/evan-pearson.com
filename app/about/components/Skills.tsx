@@ -1,160 +1,171 @@
 'use client'
 import React from "react";
 import { css } from '@emotion/react';
+import { CSSInterpolation } from '@emotion/serialize'
+import { Server, Ratio, Database, MousePointerClick, CloudLightning, TrendingUp, Terminal } from "lucide-react";
+import { colors, lightBorder, roboto_condensed } from "@/styles";
 
-import { Server, Ratio, Database, MousePointerClick, CloudLightning, TrendingUp } from "lucide-react";
-import { colors, roboto_condensed } from "@/styles";
 
-const listHeader = css({
+
+const skillsIcons = {
+  frontend: () => <Ratio />,
+  backend: () => <Server />,
+  data: () => <Database />,
+  martech: () => <MousePointerClick />,
+  cloud: () => <CloudLightning />,
+  growth: () => <TrendingUp />,
+  languages: () => <Terminal />
+}
+
+const skillsCopy = {
+  frontend: {
+    title: 'FRONTEND',
+    skills: [
+      'React',
+      'Next.JS',
+      'SaSS',
+      'Tailwind',
+      'CSS Modules',
+      'Redux/Redux Toolkit',
+      'React Router',
+      'HTML5',
+      'CSS3',
+      'Jest',
+      'Testing Library',
+      'webpack',
+      'Accessibility'
+    ]
+  },
+  backend: {
+    title: 'BACKEND',
+    skills: [
+      'Node.JS',
+      'Express',
+      'Flask',
+      'FastAPI',
+      'PostgreSQL',
+      'MongoDB',
+      'WebSockets/Socket.io',
+      'Supertest',
+      'Crontab'
+    ]
+  },
+  data: {
+    title: 'DATA',
+    skills: [
+      'Pandas',
+      'Numpy',
+      'Pydantic',
+      'Apache Airflow',
+      'Snowflake',
+      'Streamlit',
+      'ChartJS',
+      'Tableau'
+    ]
+  },
+  martech: {
+    title: 'MARTECH',
+    skills: [
+      'Google Tag Manager',
+      'Google Analytics (GA4)',
+      'Segment.io',
+      'Conversion APIs',
+      '3P Marketing Pixels',
+      'Google Campaign Manager 360'
+    ]
+  },
+  cloud: {
+    title: 'CLOUD',
+    skills: [
+      'Google Cloud Platform (GCP)',
+      'AWS (Elastic Beanstalk, S3, EC2)',
+      'Docker',
+      'Kubernetes',
+      'Git/GitHub',
+      'GitHub Actions'
+    ]
+  },
+  growth: {
+    title: 'GROWTH',
+    skills: [
+      'Digital Strategy',
+      'Paid Media Strategy/Activation',
+      'Digital Growth Hacking',
+      'Paid Social',
+      'Paid Search',
+      'eComm Advertising',
+      'Display Advertising',
+      'Affiliate Marketing',
+      'Technical SEO'
+    ]
+  },
+  languages: {
+    title: 'LANGUAGES',
+    skills: [
+      'JavaScript',
+      'Typescript',
+      'Python'
+    ]
+  }
+}
+
+
+const baseSkillCSS = css({
+  width: '335px',
+  maxWidth: '335px',
+  minWidth: '335px',
+  height: '234px',
+  maxHeight: '234px',
+  minHeight: '234px',
+  border: lightBorder,
+  boxShadow: '1px 1px 1px lightgray',
+  background: colors.white
+});
+
+
+const listHeaderCSS = css({
   display: 'flex',
   alignItems: 'center',
   paddingLeft: '10px',
   margin: '.5em 0em',
-
   '& h3': {
     margin: '0px'
   }
 });
 
+type SkillType = 'frontend' | 'backend' | 'data' | 'cloud' | 'martech' | 'growth' | 'languages'
 
+export const Skill = ({skill, columns, css}: {skill: SkillType, columns?: number, css?: CSSInterpolation}) => {
 
-const columnChild = css({
-  //border: '1px dotted gray',
-  '& ul': {
-    margin: '0px'
-  },
-  '& li':{
-    listStyleType: '"▸  "'
+  const ulCSS = {
+    margin: '0px',
+    columns: 1,
+    '& li':{
+      listStyleType: '"▸  "'
+    }
+  };  
+
+  const skills = [];
+  for (const skillText of skillsCopy[skill].skills) {
+    skills.push(
+      <li key={crypto.randomUUID()}>{skillText}</li>
+    )
   }
-});
+  const skillCSS = [ baseSkillCSS ]
+  if (columns) {
+    ulCSS.columns = columns;
+  }
+  if (css) skillCSS.push(css)
 
-const border = {
-  right: css({
-    borderRight: `1px solid ${colors.platinum}`,
-  }),
-  left: css({
-    borderLeft: `1px solid ${colors.platinum}`,
-  }),
-  top: css({
-    borderTop: `1px solid ${colors.platinum}`,
-  }),
-  bottom: css({
-    borderBottom: `1px solid ${colors.platinum}`,
-  }),
+  return (
+    <div css={skillCSS}>
+      <div css={listHeaderCSS}>
+        {skillsIcons[skill]()}
+        <h3>&nbsp;{skillsCopy[skill].title}</h3>
+      </div>
+      <ul css={ulCSS}>
+        {skills}
+      </ul>
+    </div>
+  );
 }
-
-export const Frontend = () => {
-  return (
-    <div css={[columnChild, border.right, border.bottom]}>
-      <div css={listHeader} className={roboto_condensed.className}>
-        <Ratio /><h3>&nbsp;FRONTEND</h3>
-      </div>
-      <ul style={{columns: 2}}>
-        <li>React</li>
-        <li>NextJS</li>
-        <li>SaSS</li>
-        <li>Tailwind</li>
-        <li>CSS Modules</li>
-        <li>Redux/Redux Toolkit</li>
-        <li>React Router</li>
-        <li>HTML5</li>
-        <li>CSS3</li>
-        <li>Jest</li>
-        <li>Testing Library</li>
-        <li>webpack</li>
-        <li>Accessibility</li>
-      </ul>
-    </div>
-  );
-};
-
-export const Backend = () => {
-  return (
-    <div css={[columnChild, border.bottom]}>
-      <div css={listHeader} className={roboto_condensed.className}>
-        <Server /><h3>&nbsp;BACKEND</h3>
-      </div>
-      <ul>
-        <li>NodeJS</li>
-        <li>Express</li>
-        <li>Flask</li>
-        <li>FastAPI</li>
-        <li>SQL - PostgreSQL</li>
-        <li>NoSQL - MongoDB/Mongoose</li>
-        <li>WebSockets/Socket.io</li>
-        <li>Supertest</li>
-        <li>crontab</li>
-      </ul>
-    </div>
-  );
-};
-export const Data = () => {
-  return (
-    <div css={[columnChild, border.bottom, border.right]}>
-      <div css={listHeader} className={roboto_condensed.className}>
-        <Database /><h3>&nbsp;DATA</h3>
-      </div>
-      <ul>
-        <li>pandas</li>
-        <li>numpy</li>
-        <li>pydantic</li>
-        <li>Apache Airflow</li>
-        <li>Snowflake</li>
-        <li>Streamlit</li>
-        <li>Tableau</li>
-      </ul>
-    </div>
-  );
-};
-export const Martech = () => {
-  return (
-    <div css={[columnChild, border.bottom]}>
-      <div css={listHeader} className={roboto_condensed.className}>
-        <MousePointerClick /><h3>&nbsp;MARTECH</h3>
-      </div>
-      <ul>
-        <li>Google Tag Manager</li>
-        <li>Segment.io</li>
-        <li>Conversion APIs</li>
-        <li>3P Marketing Pixels - Meta, Google, etc.</li>
-        <li>Google Campaign Manager 360</li>
-        <li>Google Analytics (GA4)</li>
-      </ul>
-    </div>
-  );
-};
-export const Cloud = () => {
-  return (
-    <div css={[columnChild, border.right]}>
-      <div css={listHeader} className={roboto_condensed.className}>
-        <CloudLightning /><h3>&nbsp;CLOUD/DEVOPS</h3>
-      </div>
-      <ul>
-        <li>Google Cloud Platform</li>
-        <li>AWS (Elastic Beanstalk, S3, EC2)</li>
-        <li>Docker</li>
-        <li>Kubernetes</li>
-        <li>Git/GitHub Flow</li>
-        <li>GitHub Actions</li>
-      </ul>
-    </div>
-  );
-};
-export const Growth = () => {
-  return (
-    <div css={columnChild}>
-      <div css={listHeader} className={roboto_condensed.className}>
-        <TrendingUp /><h3>&nbsp;GROWTH</h3>
-      </div>
-      <ul>
-        <li>Digital Media Strategy</li>
-        <li>Cross-channel Paid Media Strategy/Activation</li>
-        <li>Paid Social - Meta, X(Twitter), YouTube, TikTok, SnapChat, etc.</li>
-        <li>Paid Search - Google Ads, Bing Ads</li>
-        <li>Paid eComm - Amazon Ads, Criteo, Walmart Connect</li>
-        <li>Paid Display - Google DV360, AMS, AAP</li>
-        <li>Technical SEO</li>
-      </ul>
-    </div>
-  );
-};

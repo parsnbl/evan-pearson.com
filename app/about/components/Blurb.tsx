@@ -22,8 +22,7 @@ const Blurb = () => {
 
 
   return (
-    <Band outerCSS={blurbBandStyle}>
-            <div css = {{
+          <div css = {{
               display: 'flex',
               alignItems: 'center'
 
@@ -54,10 +53,7 @@ const Blurb = () => {
                 <p>I love bootstrapping and making an impact. I have a passion for growth and making cool products that <span css={{fontWeight: 'bold'}}>customers love</span>. I'm looking for collaborators - let's talk.</p>
               </div>
             </div>
-            <div>
-            
-            </div>
-          </Band>
+           
   );
 };
 

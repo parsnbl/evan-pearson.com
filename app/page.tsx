@@ -1,57 +1,20 @@
 'use client';
 import React from 'react';
 
-
-import { colors, roboto_mono } from '@/styles';
+import { colors, iconBackground, lightBorder } from '@/styles';
 
 import Band from './components/Band';
 import ProjectArray from './projects/components/ProjectsArray';
 import SkillsWrapper from './about/components/SkillsWrapper';
-import { Frontend, Backend, Cloud, Growth } from './about/components/Skills';
-import CTA from './components/CTA';
-
+// import { Frontend, Backend, Cloud, Growth } from './about/components/Skills';
+import { Skill } from './about/components/Skills';
+import Blurb from './about/components/Blurb'
+import Button from './components/Button';
 
 import Hero from './components/Hero';
 
-
-
 import { CustomRef, Dimensions } from './hooks/useDimensions';
 import useDimensions from './hooks/useDimensions';
-
-import laugh from '@public/assets/laugh.svg'
-import atom from '@public/assets/atom.svg'
-import audiowaveform from '@public/assets/audio-waveform.svg'
-import bugoff from '@public/assets/bug-off.svg'
-import gauge from '@public/assets/gauge.svg'
-import handmetal from '@public/assets/hand-metal.svg'
-import mountain from '@public/assets/mountain.svg'
-import palmtree from '@public/assets/palmtree.svg'
-import rocket from '@public/assets/rocket.svg'
-import star from '@public/assets/star.svg'
-import sun from '@public/assets/sun.svg'
-import tenttree from '@public/assets/tent-tree.svg'
-import thumbsup from '@public/assets/thumbs-up.svg'
-import wrench from '@public/assets/wrench.svg'
-
-const svgs = [
-  laugh,
-  atom,
-  audiowaveform,
-  bugoff,
-  gauge,
-  handmetal,
-  mountain,
-  palmtree,
-  rocket,
-  star,
-  sun,
-  tenttree,
-  thumbsup,
-  wrench
-]
-
-const randomSVG = svgs[Math.floor(Math.random() * svgs.length)];
-
 
 const heroBandOuterCSS = {
   height: '60vh',
@@ -62,53 +25,99 @@ const heroBandOuterCSS = {
   overflowY: 'hidden',
   overflowX: 'hidden',
   minHeight: '368px',
-  backgroundImage: `url(${randomSVG.src})`,
-  backgroundRepeat: 'repeat',
-  backgroundAttachment: 'fixed'
-
+  ...iconBackground,
 };
 
 const elevatorPitchOuterCSS = {
   borderTop: `1px solid ${colors.platinum}`,
   borderBottom: `1px solid ${colors.platinum}`,
-  boxShadow: `0px -1px 1px lightgray`
-}
+  boxShadow: `0px -1px 1px lightgray`,
+};
 
 const projectsBandInnerCSS = {
-
-}
-
+  width: 'inherit',
+  paddingLeft: 0,
+  paddingRight: 0,
+  paddingBottom: 0,
+};
 const skillsBandOuterCSS = {
+  paddingTop: '20px',
+  ...iconBackground,
+};
 
-}
+const skillsBandInnerCSS = {
+  paddingTop: 0,
+  paddingBottom: 0,
+};
+const CTAInnerCSS = {};
 
 export default function Page() {
-  const [heroBandRef, heroBandDim]: 
-    [heroBandRef: CustomRef, heroBandDim: Dimensions] = useDimensions();
+  const [heroBandRef, heroBandDim]: [
+    heroBandRef: CustomRef,
+    heroBandDim: Dimensions
+  ] = useDimensions();
 
   return (
     <>
       <Band innerRef={heroBandRef} outerCSS={heroBandOuterCSS}>
-        <Hero iconMatDim={heroBandDim}/>
+        <Hero iconMatDim={heroBandDim} />
       </Band>
       <Band outerCSS={elevatorPitchOuterCSS}>
-        I'm a person
+       <Blurb />
+
       </Band>
       <Band innerCSS={projectsBandInnerCSS}>
-        <h2>FEATURED PROJECTS</h2>
-        <ProjectArray filterCallback={(elem) => elem.title === 'wave.js'} />
+        <h2 css={{ paddingLeft: '32px' , marginTop: 0}}>FEATURED PROJECTS</h2>
+        <div
+          css={{
+            display: 'flex',
+            width: '100%',
+            backgroundColor: colors.platinum,
+            overflowX: 'auto',
+            '> *': {
+              margin: '5px 10px',
+              backgroundColor: colors.white,
+              boxShadow: '2px 2px 2px lightgray',
+            },
+          }}
+        >
+          <ProjectArray />
+        </div>
       </Band>
-      <Band>
-        <h2>SKILLS</h2>
-        <SkillsWrapper columnStyles={{ gridTemplateRows: 'repeat(2, 1fr)' }}>
-          <Frontend />
-          <Backend />
-          <Cloud />
-          <Growth />
+      <Band outerCSS={skillsBandOuterCSS} innerCSS={skillsBandInnerCSS}>
+        <h2
+          css={{
+            marginTop: 0,
+            background: colors.white,
+            display: 'inline-block',
+            border: lightBorder,
+            boxShadow: '1px 1px 1px lightgray',
+            padding: '4px',
+          }}
+        >
+          SKILLS
+        </h2>
+    
+        <SkillsWrapper>
+          <Skill skill="languages" />
+          <Skill skill="frontend" columns={2} />
+          <Skill skill="backend" />
+          <Skill skill="data" />
+          <Skill skill="growth" />
+          <Skill skill="cloud" />
+          <Skill skill="backend" />
         </SkillsWrapper>
       </Band>
-      
-      <CTA />
+      <Band
+        outerCSS={{ ...iconBackground }}
+        innerCSS={{
+          display: 'flex',
+          justifyContent: 'center',
+          paddingTop: '40px',
+        }}
+      >
+        <Button buttonCSS={{ fontSize: '3em' }} text="LET'S TALK!" />
+      </Band>
     </>
   );
 }

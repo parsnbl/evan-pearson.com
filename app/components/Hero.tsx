@@ -33,7 +33,7 @@ const Hero = ({ iconMatDim }: HeroCustomization) => {
     }}>
     <div
       css={{
-        padding: '20px 0px 20px 20px',
+        padding: '20px 20px 20px 20px',
         border: `1px solid ${colors.platinum}`,
         display: 'flex',
         flexDirection: 'column',

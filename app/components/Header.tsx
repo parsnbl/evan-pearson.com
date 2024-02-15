@@ -32,21 +32,8 @@ const navCSS = css({
     margin: '0px',
     '& li': {
       padding: '0px 10px',
-     
+      fontFamily: 'Roboto Condensed'
     },
-    '& a': {
-      textDecoration: 'none',
-      ':visited': {
-        color: colors.black
-      },
-      ':hover': {
-        outline: `1px solid ${colors.pictonBlue}`
-      },
-      ':active': {
-        backgroundColor: colors.black,
-        color: colors.white
-      }
-    }
   });
 
 {/* 
@@ -67,11 +54,9 @@ const Header = (): EmotionJSX.Element => {
       </Link>
       <nav>
         <ul css={navCSS}>
-        
-          <Link href='/about'><li className={roboto_condensed.className}>ABOUT</li></Link>
-          <Link href='/projects'><li className={roboto_condensed.className}>WORK</li></Link>
-          <Link href={'/assets/EvanPearson_Resume.pdf'}><li className={roboto_condensed.className}>RESUME</li></Link>
-          <Link href='/contact'><li className={roboto_condensed.className}>CONTACT</li></Link>
+          <Link href='/projects'><li >WORK</li></Link>
+          <Link href={'/assets/EvanPearson_Resume.pdf'}><li >RESUME</li></Link>
+          <Link href='/contact'><li >CONTACT</li></Link>
         </ul>
       </nav>
     </header>

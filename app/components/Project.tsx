@@ -5,28 +5,19 @@ import Image from 'next/image';
 import { css } from '@emotion/react';
 
 
-import { colors, border, activeBorder, roboto_condensed, roboto_mono } from '@/styles';
+import { colors, lightBorder, roboto_mono } from '@/styles';
 import { Github, Globe  } from 'lucide-react';
 
 
 import Band from '@/components/Band';
 
-const band = {
-  //border: '1px solid black',
-  '& h2': {
-    marginTop: '0px'
-  }
-};
 
-const iconButton = {
-  color: colors.black,
-  ':hover': activeBorder,
-  ':active': {
-    color: colors.pictonBlue
-  }
-};
-
-css()
+const projectWrapper = css({
+  border: lightBorder,
+  padding: '1em',
+  width: '731px',
+  minWidth: '731px'
+})
 
 
 interface ProjectData {
@@ -62,30 +53,45 @@ const Project = ({
         linkArr.push(
           <a 
             href={web}
+            css={{
+              width: '24px',
+              height: '24px',
+              display: 'inline-block'
+            }}
             key={crypto.randomUUID()}
             target="_blank"
             rel="noreferrer noopener"
-          ><Globe css={[border, iconButton, {marginRight: '.5em'}]}/></a>
+          ><Globe css={{marginRight: '.5em'}}/></a>
         );
       }
       if (github) {
         linkArr.push(
           <a
             href={github}
+            css={{
+              width: '24px',
+              height: '24px',
+              display: 'inline-block'
+            }}
             key={crypto.randomUUID()}
             target="_blank"
             rel="noreferrer noopener"
-          ><Github css={[border, iconButton, {marginRight: '.5em'}]}/></a>
+          ><Github css={{marginRight: '.5em'}}/></a>
         );
       }
       if (npm) {
         linkArr.push(
           <a 
             href={npm}
+            css={{
+              width: '24px',
+              height: '24px',
+              display: 'inline-block'
+            }}
             key={crypto.randomUUID()}
             target="_blank"
             rel="noreferrer noopener"
-          ><Image src="/assets/npm.svg" alt="npm" height={24} width={24} css={[border, iconButton, {':active': { filter: 'invert(64%) sepia(82%) saturate(522%) hue-rotate(169deg) brightness(90%) contrast(90%)'}}]}/></a>
+          ><Image src="/assets/npm.svg" alt="npm" height={24} width={24} css={{':active': { filter: 'invert(64%) sepia(82%) saturate(522%) hue-rotate(169deg) brightness(90%) contrast(90%)'}}}/></a>
         );
       }
       return {  descArr, tagsElem, linkArr };
@@ -96,17 +102,17 @@ const Project = ({
     
 
     return (
-              <div css={band}>
-                <h2 className={roboto_condensed.className}>{title}</h2>
+              <div css={projectWrapper}>
+                <h2 css={{marginTop: 0, padding: 0}}>{title}</h2>
                 <div css={css({
                   display: 'flex',
                 })}>
                   <Image 
                     src={`/projects/${imageSlug}`}
+                    css={{border: lightBorder, marginRight: '10px'}}
                     alt={title}
                     height={300}
                     width={300}
-                    css={[border, {marginRight: '10px'}]}
                   />
                   <div 
                     css={{
