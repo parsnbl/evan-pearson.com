@@ -6,51 +6,34 @@ import { css } from '@emotion/react';
 import SubmitButton from '@/components/SubmitButton';
 import Link from 'next/link';
 
-import { colors, roboto_condensed, roboto_flex } from '@/styles';
-
 import Band from '@/components/Band';
 import mail from '../hooks/mail';
 
 const MAX_SUBJECT_LENGTH = 140;
 const MAX_BODY_LENGTH = 2083;
 
-interface Values {
+interface FormProps {
   subject: string;
   email: string;
   body: string;
 }
 
-const bandStyle = {
+const bandStyle = css({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-};
+});
 
-const formStyle = {
+const formStyle = css({
   display: 'flex',
   width: '500px',
   flexDirection: 'column',
-};
-
-const buttonStyle = {
-  alignSelf: 'flex-end',
-  backgroundColor: colors.white,
-  fontSize: '1em',
-  fontFamily: roboto_condensed.style,
-  fontWeight: 'bolder',
-  borderRadius: '5px',
-  ':hover': {
-    color: colors.pictonBlue,
-  },
-  ':active': {
-    backgroundColor: colors.black,
-  },
-};
+});
 
 const errorText = css({ fontSize: '.8em', color: 'red', marginBottom: '.7em' });
 
-const validate = (values: Values) => {
-  const errors = {};
+const validate = (values: FormProps) => {
+  const errors = {} as FormProps;
   if (!values.email) {
     errors.email = 'Required';
   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
@@ -103,7 +86,7 @@ const ContactForm = () => {
     validate,
     validateOnChange: false,
     validateOnBlur: false,
-    onSubmit: async (values: Values) => {
+    onSubmit: async (values: FormProps) => {
       setSubmitSuccess(true);
       const response = await mail(values);
       if (response.messageSuccess) {
@@ -117,7 +100,7 @@ const ContactForm = () => {
     return (
       <Band outerCSS={bandStyle}>
         <p css={{ textAlign: 'start', width: '500px' }}>
-          Thank you for reaching out! We'll chat soon!
+          Thank you for reaching out! We&apos;ll chat soon!
         </p>
         <div css={{ textAlign: 'end', width: '500px' }}>
           <Link href="/">◂ Home</Link>
@@ -163,8 +146,7 @@ const ContactForm = () => {
               placeholder="Body"
               onChange={formik.handleChange}
               value={formik.values.body}
-              className={roboto_flex.className}
-              css={{ marginBottom: formik.errors.body ? '0em' : '24px' }}
+              css={{ marginBottom: formik.errors.body ? '0em' : '24px', fontFamily: 'Roboto Flex' }}
             />
           </div>
           {formik.errors.body ? (
@@ -173,7 +155,10 @@ const ContactForm = () => {
           <div
             css={[inputDiv, { display: 'flex', justifyContent: 'flex-end' }]}
           >
-            <SubmitButton buttonCSS={{fontSize: '1.5em'}} text='SEND MESSAGE'/>
+            <SubmitButton
+              buttonCSS={{ fontSize: '1.5em' }}
+              text="SEND MESSAGE"
+            />
           </div>
         </form>
       </Band>

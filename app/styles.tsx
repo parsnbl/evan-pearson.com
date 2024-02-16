@@ -1,6 +1,4 @@
 
-import { Roboto_Flex, Roboto_Mono, Roboto_Condensed } from "next/font/google";
-import { css } from "@emotion/react";
 import laugh from '@public/assets/laugh.svg';
 import atom from '@public/assets/atom.svg';
 import audiowaveform from '@public/assets/audio-waveform.svg';
@@ -40,35 +38,18 @@ export const colors = {
   black: '#000000',
   platinum: '#E6E6E6',
   pompAndPower: '#86608E',
-  pictonBlue: '#50AFDA'
-}
+  pictonBlue: '#50AFDA',
+};
 
 export const container = {
   height: '100%',
-  width: '100%'
-}
+  width: '100%',
+};
 
-
-
-export const roboto_flex = Roboto_Flex({
-  subsets: ['latin'],
-  display: 'swap'
-});
-
-export const roboto_condensed = Roboto_Condensed({ 
-  subsets: ['latin'],
-  display: 'swap',
-});
-
-export const roboto_mono = Roboto_Mono({
-  subsets: ['latin'],
-  display: 'swap',
-});
-
-export const lightBorder = `1px ${colors.platinum} solid`
+export const lightBorder = `1px ${colors.platinum} solid`;
 
 export const iconBackground = {
   backgroundImage: `url(${randomSVG.src})`,
   backgroundRepeat: 'repeat',
   backgroundAttachment: 'fixed',
-}
+};

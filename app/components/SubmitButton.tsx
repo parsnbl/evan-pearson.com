@@ -1,22 +1,27 @@
-'use client'
+'use client';
 
+import { css } from '@emotion/react';
+import { colors } from '@/styles';
+import { FullCSSInterpolation } from '../../declarations';
 
-import { css } from '@emotion/react'
-import { colors } from "@/styles";
+interface SubmitButtonProps {
+  wrapperCSS?: FullCSSInterpolation
+  buttonCSS?: FullCSSInterpolation
+  text: string
 
+}
 
-
-const SubmitButton = ({wrapperCSS, buttonCSS, text }) => {
-  let wrapper = {
+const SubmitButton = ({ wrapperCSS, buttonCSS, text }: SubmitButtonProps) => {
+  let wrapper = css({
     '& a:hover': {
-      outline: 'none'
+      outline: 'none',
     },
     '& a:active': {
       backgroundColor: colors.white,
-      color: colors.black
-     }
-  };
-  let button = {
+      color: colors.black,
+    },
+  });
+  let button = css({
     textAlign: 'center',
     display: 'inline-block',
     border: '1px solid black',
@@ -27,22 +32,21 @@ const SubmitButton = ({wrapperCSS, buttonCSS, text }) => {
     background: colors.white,
     ':active': {
       color: colors.white,
-      backgroundColor: colors.black
+      backgroundColor: colors.black,
     },
     ':hover': {
-      boxShadow: `8px 8px ${colors.pictonBlue}`
-    }
-  }
-  if (wrapperCSS) wrapper = {...wrapper, ...css};
-  if (buttonCSS) button = Object.assign(button, buttonCSS);
-
+      boxShadow: `8px 8px ${colors.pictonBlue}`,
+    },
+  });
+  if (wrapperCSS) wrapper = css([wrapper, wrapperCSS])
+  if (buttonCSS) button = css([button, buttonCSS])
   return (
     <div css={wrapper}>
-        <button type='submit' css={button}>
-          {text}
-        </button>
+      <button type="submit" css={button}>
+        {text}
+      </button>
     </div>
-  )
+  );
 };
 
 export default SubmitButton;

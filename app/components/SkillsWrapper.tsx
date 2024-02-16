@@ -1,10 +1,8 @@
 'use client';
 
 import React from 'react';
-import { SerializedStyles, css } from '@emotion/react';
-import { colors } from '@/styles';
-import Band from '@/components/Band';
-import { StyledWrapped } from '../../declarations';
+import { SerializedStyles } from '@emotion/react';
+
 
 const twoColumn = {
   display: 'grid',

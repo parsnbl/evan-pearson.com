@@ -1,8 +1,7 @@
 'use client';
 
-
 import { colors, iconBackground, lightBorder } from '@/styles';
-
+import { css } from '@emotion/react';
 import Band from './components/Band';
 import ProjectArray from './projects/components/ProjectsArray';
 import SkillsWrapper from './components/SkillsWrapper';
@@ -13,8 +12,7 @@ import LinkButton from './components/LinkButton';
 
 import Hero from './components/Hero';
 
-
-const heroBandOuterCSS = {
+const heroBandOuterCSS = css({
   height: '60vh',
   display: 'flex',
   width: 'calc(100vw - 18px)',
@@ -24,34 +22,33 @@ const heroBandOuterCSS = {
   overflowX: 'hidden',
   minHeight: '368px',
   ...iconBackground,
-};
+});
 
-const elevatorPitchOuterCSS = {
+const elevatorPitchOuterCSS = css({
   borderTop: `1px solid ${colors.platinum}`,
   borderBottom: `1px solid ${colors.platinum}`,
   boxShadow: `0px -1px 1px lightgray`,
-};
+});
 
-const projectsBandInnerCSS = {
+const projectsBandInnerCSS = css({
   width: 'inherit',
   paddingLeft: 0,
   paddingRight: 0,
   paddingBottom: 0,
-};
-const skillsBandOuterCSS = {
+});
+
+const skillsBandOuterCSS = css({
   paddingTop: '20px',
   ...iconBackground,
-};
+});
 
-const skillsBandInnerCSS = {
+const skillsBandInnerCSS = css({
   paddingTop: 0,
   paddingBottom: 0,
-};
-const CTAInnerCSS = {};
+});
+
 
 export default function Page() {
-
-
   return (
     <>
       <Band outerCSS={heroBandOuterCSS}>
@@ -111,7 +108,7 @@ export default function Page() {
         }}
       >
         <LinkButton buttonCSS={{ fontSize: '3em' }} href="/contact">
-          LET'S TALK!
+          LET&apos;S TALK!
         </LinkButton>
       </Band>
     </>

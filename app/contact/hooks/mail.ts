@@ -1,24 +1,28 @@
-'use server'
+'use server';
 import nodemailer from 'nodemailer';
-import 'dotenv/config'
-
-
-
-
+import 'dotenv/config';
 
 const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
-    auth: {
-      user: process.env.EMAIL_UN,
-      pass: process.env.EMAIL_PASS
-    }
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true,
+  auth: {
+    user: process.env.EMAIL_UN,
+    pass: process.env.EMAIL_PASS,
+  },
 });
 
-export default async function mail({subject, email, body}: {subject: string, email:string, body: string}) {
+export default async function mail({
+  subject,
+  email,
+  body,
+}: {
+  subject: string;
+  email: string;
+  body: string;
+}) {
   let response;
-  try{
+  try {
     response = await transporter.sendMail({
       from: '"Portfolio Contact Form" <parsnbl@gmail.com>',
       to: 'ejp1989@icloud.com',
@@ -36,18 +40,17 @@ export default async function mail({subject, email, body}: {subject: string, ema
           <p>${body}</p>
         </body>
       </html>
-      `
+      `,
     });
     return {
       ...response,
-      messageSuccess: true
-    }
-  } catch(err) {
-    console.error(err)
+      messageSuccess: true,
+    };
+  } catch (err) {
+    console.error(err);
     return {
       ...response,
-      messageSuccess: false
-    }
+      messageSuccess: false,
+    };
   }
-
 }

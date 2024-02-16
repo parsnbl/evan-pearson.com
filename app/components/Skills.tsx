@@ -1,9 +1,19 @@
-'use client'
-import React from "react";
+'use client';
+
 import { css } from '@emotion/react';
-import { CSSInterpolation } from '@emotion/serialize'
-import { Server, Ratio, Database, MousePointerClick, CloudLightning, TrendingUp, Terminal } from "lucide-react";
-import { colors, lightBorder, roboto_condensed } from "@/styles";
+import { FullCSSInterpolation } from '../../declarations';
+import {
+  Server,
+  Ratio,
+  Database,
+  MousePointerClick,
+  CloudLightning,
+  TrendingUp,
+  Terminal,
+} from 'lucide-react';
+import { colors, lightBorder } from '@/styles';
+
+import { SkillType, SkillsData } from '../../declarations';
 
 
 
@@ -14,10 +24,10 @@ const skillsIcons = {
   martech: () => <MousePointerClick />,
   cloud: () => <CloudLightning />,
   growth: () => <TrendingUp />,
-  languages: () => <Terminal />
-}
+  languages: () => <Terminal />,
+};
 
-const skillsCopy = {
+const skillsCopy: SkillsData = {
   frontend: {
     title: 'FRONTEND',
     skills: [
@@ -33,8 +43,8 @@ const skillsCopy = {
       'Jest',
       'Testing Library',
       'webpack',
-      'Accessibility'
-    ]
+      'Accessibility',
+    ],
   },
   backend: {
     title: 'BACKEND',
@@ -47,8 +57,8 @@ const skillsCopy = {
       'MongoDB',
       'WebSockets/Socket.io',
       'Supertest',
-      'Crontab'
-    ]
+      'Crontab',
+    ],
   },
   data: {
     title: 'DATA',
@@ -60,8 +70,8 @@ const skillsCopy = {
       'Snowflake',
       'Streamlit',
       'ChartJS',
-      'Tableau'
-    ]
+      'Tableau',
+    ],
   },
   martech: {
     title: 'MARTECH',
@@ -71,8 +81,8 @@ const skillsCopy = {
       'Segment.io',
       'Conversion APIs',
       '3P Marketing Pixels',
-      'Google Campaign Manager 360'
-    ]
+      'Google Campaign Manager 360',
+    ],
   },
   cloud: {
     title: 'CLOUD',
@@ -82,8 +92,8 @@ const skillsCopy = {
       'Docker',
       'Kubernetes',
       'Git/GitHub',
-      'GitHub Actions'
-    ]
+      'GitHub Actions',
+    ],
   },
   growth: {
     title: 'GROWTH',
@@ -96,19 +106,14 @@ const skillsCopy = {
       'eComm Advertising',
       'Display Advertising',
       'Affiliate Marketing',
-      'Technical SEO'
-    ]
+      'Technical SEO',
+    ],
   },
   languages: {
     title: 'LANGUAGES',
-    skills: [
-      'JavaScript',
-      'Typescript',
-      'Python'
-    ]
-  }
-}
-
+    skills: ['JavaScript', 'Typescript', 'Python'],
+  },
+};
 
 const baseSkillCSS = css({
   width: '335px',
@@ -119,9 +124,8 @@ const baseSkillCSS = css({
   minHeight: '234px',
   border: lightBorder,
   boxShadow: '1px 1px 1px lightgray',
-  background: colors.white
+  background: colors.white,
 });
-
 
 const listHeaderCSS = css({
   display: 'flex',
@@ -129,43 +133,46 @@ const listHeaderCSS = css({
   paddingLeft: '10px',
   margin: '.5em 0em',
   '& h3': {
-    margin: '0px'
-  }
+    margin: '0px',
+  },
 });
 
-type SkillType = 'frontend' | 'backend' | 'data' | 'cloud' | 'martech' | 'growth' | 'languages'
 
-export const Skill = ({skill, columns, css}: {skill: SkillType, columns?: number, css?: CSSInterpolation}) => {
+
+export const Skill = ({
+  skill,
+  columns,
+  skillCSS,
+}: {
+  skill: SkillType;
+  columns?: number;
+  skillCSS?: FullCSSInterpolation;
+}) => {
 
   const ulCSS = {
     margin: '0px',
     columns: 1,
-    '& li':{
-      listStyleType: '"▸  "'
-    }
-  };  
+    '& li': {
+      listStyleType: '"▸  "',
+    },
+  };
 
-  const skills = [];
-  for (const skillText of skillsCopy[skill].skills) {
-    skills.push(
-      <li key={crypto.randomUUID()}>{skillText}</li>
-    )
-  }
-  const skillCSS = [ baseSkillCSS ]
   if (columns) {
     ulCSS.columns = columns;
   }
-  if (css) skillCSS.push(css)
+  const subSkills = skillsCopy[skill].skills;
 
   return (
-    <div css={skillCSS}>
+    <div css={skillCSS ? [baseSkillCSS, css(skillCSS)] : baseSkillCSS}>
       <div css={listHeaderCSS}>
         {skillsIcons[skill]()}
         <h3>&nbsp;{skillsCopy[skill].title}</h3>
       </div>
       <ul css={ulCSS}>
-        {skills}
+        {subSkills.map(text => (
+          <li key={crypto.randomUUID()}>{text}</li>
+        ))}
       </ul>
     </div>
   );
-}
+};
