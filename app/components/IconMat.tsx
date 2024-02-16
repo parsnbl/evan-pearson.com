@@ -65,10 +65,10 @@ const IconMat = ({ dim }: IconMatCustomization) => {
       padding: '1px',
     },
   };
-  let rowLowerBound = 4;
-  let rowUpperBound = 21;
-  let colLowerBound = 34;
-  let colUpperBound = 72;
+  const rowLowerBound = 4;
+  const rowUpperBound = 21;
+  const colLowerBound = 34;
+  const colUpperBound = 72;
 
   const safeSmileCoords = addSafeZone(smileCoords, rowLowerBound, colLowerBound, rowUpperBound, colUpperBound)
 

@@ -14,7 +14,7 @@ const NPM = () => {
       fill: colors.white
     }
   })
-  let innerColor = colors.white;
+  const innerColor = colors.white;
   let outerColor
   const onClick = () => {
 

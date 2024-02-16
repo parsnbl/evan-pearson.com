@@ -18,7 +18,7 @@ const typedProjects: ProjectData[] = projects;
 const tagCounts: {[index: string]: number} = {}
 const tagActive: {[index: string]: boolean} = {}
 typedProjects.forEach(project => {
-  for (let tag of project.tags) {
+  for (const tag of project.tags) {
     if (!(tag in tagCounts)) tagCounts[tag] = 0;
     if (!(tag in tagActive)) tagActive[tag] = false;
     tagCounts[tag] += 1;
@@ -33,7 +33,7 @@ const Page = () => {
   
   useEffect(()=>{
     if (!filterTags === undefined || !(filterTags.length < 1)) {
-      let filtered: ProjectData[] = [];
+      const filtered: ProjectData[] = [];
       typedProjects.forEach((project) => {
         if (filterTags.every(tag => project.tags.includes(tag)) &&
         !filtered.includes(project)) {

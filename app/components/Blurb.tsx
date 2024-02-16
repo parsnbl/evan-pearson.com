@@ -1,30 +1,18 @@
 'use client';
-import React from "react";
-import { css } from '@emotion/react';
-import Image from "next/image";
 
-import Band from "@/components/Band";
-import { Hand, Link } from 'lucide-react';
-import { roboto_condensed, lightBorder } from '@/styles';
-import Icon from "./Icon";
-import LinkButton from './LinkButton';
+import Image from 'next/image';
+import { css } from '@emotion/react'
 import { Github, Linkedin } from 'lucide-react';
 
+import { lightBorder } from '@/styles';
 
-const blurbBandStyle = {
-  height: 'auto',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-};
+import LinkButton from './LinkButton';
+
+
 
 
 
 const Blurb = () => {
-
-    
-
-
   return (
           <div css={{display: 'flex', alignItems: 'center'}}>
               <div css={{marginRight: '1em', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
@@ -39,8 +27,6 @@ const Blurb = () => {
                     boxShadow: '1px 1px 3px lightgray'
                   }}/>
                   <div css={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
-                  {/* href='https://github.com/parsnbl'
-                  https://www.linkedin.com/in/evanpearson89/ */}
                   <LinkButton href="https://github.com/parsnbl" ext={true} 
                   buttonCSS={{
                     display: 'flex', 

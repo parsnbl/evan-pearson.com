@@ -20,3 +20,7 @@ export interface ProjectData {
   github?: string,
   npm?: string,
 }
+
+export interface CSSObject {
+  [index: string]: string | number | CSSObject | (() => CSSObject)
+}
