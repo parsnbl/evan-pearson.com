@@ -5,6 +5,7 @@ import createCache from '@emotion/cache';
 import { useServerInsertedHTML } from 'next/navigation';
 import { useState } from 'react';
 import type { Wrapped } from '../declarations';
+
 export default function RootStyleRegistry({ children }: Wrapped) {
     const [{ cache, flush }] = useState(() => {
         const cache = createCache({ key: 'emotion-cache' })

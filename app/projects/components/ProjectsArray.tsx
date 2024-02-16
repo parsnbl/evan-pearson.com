@@ -27,7 +27,6 @@ const ProjectArray = ({
       setProjectArr(filtered);
     }, [titlesFilter, tagsFilter])
 
-    console.log(projectArr)
 
   return (
     <>

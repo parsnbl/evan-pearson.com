@@ -1,25 +1,10 @@
 'use client'
 
-import React from 'react'
-
 import { colors, roboto_mono } from '@/styles';
 import { Dimensions } from '@/hooks/useDimensions';
-import dynamic from 'next/dynamic';
-import laugh from '@public/assets/laugh.svg'
-
-const DynamicIconMat = dynamic(()=> import('./IconMat').then((res) => {
-  console.log('loaded');
-  return res;
-}), {
-  ssr: false
-})
 
 
-interface HeroCustomization {
-  iconMatDim?: Dimensions
-}
-
-const Hero = ({ iconMatDim }: HeroCustomization) => {
+const Hero = () => {
   return (
     <div css={{
       width: 'calc(100vw + 50px)',
@@ -49,12 +34,12 @@ const Hero = ({ iconMatDim }: HeroCustomization) => {
       }}
     >
       <h1 css={{ fontSize: '60px' }}>
-        Hello, I'm{' '}
+        Hello, I&apos;m{' '}
         <span css={{ color: colors.pompAndPower, fontFamily: 'Roboto Condensed' }}>Evan Pearson</span>
       </h1>
 
       <p>
-        I'm a Software Engineer who builds for impact. I use a 10+ year
+        I&apos;m a Software Engineer who builds for impact. I use a 10+ year
         career in Growth and skills in
       </p>
       <ul

@@ -38,8 +38,6 @@ export default async function mail({subject, email, body}: {subject: string, ema
       </html>
       `
     });
-    console.log('response:')
-    console.log(response)
     return {
       ...response,
       messageSuccess: true

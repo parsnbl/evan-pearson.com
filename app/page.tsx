@@ -1,20 +1,17 @@
 'use client';
-import React from 'react';
+
 
 import { colors, iconBackground, lightBorder } from '@/styles';
 
 import Band from './components/Band';
 import ProjectArray from './projects/components/ProjectsArray';
 import SkillsWrapper from './components/SkillsWrapper';
-// import { Frontend, Backend, Cloud, Growth } from './about/components/Skills';
+
 import { Skill } from './components/Skills';
 import Blurb from './components/Blurb';
 import LinkButton from './components/LinkButton';
-import { Github, Linkedin } from 'lucide-react';
-import Hero from './components/Hero';
 
-import { CustomRef, Dimensions } from './hooks/useDimensions';
-import useDimensions from './hooks/useDimensions';
+import Hero from './components/Hero';
 
 
 const heroBandOuterCSS = {
@@ -53,15 +50,12 @@ const skillsBandInnerCSS = {
 const CTAInnerCSS = {};
 
 export default function Page() {
-  const [heroBandRef, heroBandDim]: [
-    heroBandRef: CustomRef,
-    heroBandDim: Dimensions
-  ] = useDimensions();
+
 
   return (
     <>
-      <Band innerRef={heroBandRef} outerCSS={heroBandOuterCSS}>
-        <Hero iconMatDim={heroBandDim} />
+      <Band outerCSS={heroBandOuterCSS}>
+        <Hero />
       </Band>
       <Band outerCSS={elevatorPitchOuterCSS}>
         <Blurb />
