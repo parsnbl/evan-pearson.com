@@ -1,11 +1,10 @@
-'use client'
+'use client';
 
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import { css } from '@emotion/react';
-
+import SubmitButton from '@/components/SubmitButton';
 import Link from 'next/link';
-
 
 import { colors, roboto_condensed, roboto_flex } from '@/styles';
 
@@ -41,15 +40,14 @@ const buttonStyle = {
   fontWeight: 'bolder',
   borderRadius: '5px',
   ':hover': {
-    color: colors.pictonBlue
+    color: colors.pictonBlue,
   },
   ':active': {
-    backgroundColor: colors.black
-  }
+    backgroundColor: colors.black,
+  },
 };
 
-const errorText = css({fontSize: '.8em', color: 'red', marginBottom: '.7em'});
-
+const errorText = css({ fontSize: '.8em', color: 'red', marginBottom: '.7em' });
 
 const validate = (values: Values) => {
   const errors = {};
@@ -60,7 +58,7 @@ const validate = (values: Values) => {
   }
 
   if (!values.subject) {
-    errors.subject = 'Required';  
+    errors.subject = 'Required';
   } else if (values.subject.length > MAX_SUBJECT_LENGTH) {
     errors.subject = `Must be ${MAX_SUBJECT_LENGTH} characters or less`;
   }
@@ -68,37 +66,33 @@ const validate = (values: Values) => {
   if (!values.body) {
     errors.body = 'Required';
   } else if (values.body.length > MAX_BODY_LENGTH) {
-    errors.body = `Must be ${MAX_BODY_LENGTH} characters or less`
+    errors.body = `Must be ${MAX_BODY_LENGTH} characters or less`;
   }
   return errors;
 };
 
-
 const inputDiv = css({
   width: '100%',
   '& input': {
-    width: 'calc(100% - 22px)',
+    width: '100%',
     padding: '10px',
     outline: 'none',
     border: '1px solid black',
-    borderRadius: '5px'
+    borderRadius: '5px',
   },
   '& textarea': {
-    width: 'calc(100% - 22px)',
+    width: '100%',
     height: '150px',
     padding: '10px',
     outline: 'none',
     border: '1px solid black',
     borderRadius: '5px',
     resize: 'none',
-  }
+  },
 });
 
-
-
-
 const ContactForm = () => {
-  const [ submitSuccess, setSubmitSuccess ] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
 
   const formik = useFormik({
     initialValues: {
@@ -113,65 +107,77 @@ const ContactForm = () => {
       setSubmitSuccess(true);
       const response = await mail(values);
       if (response.messageSuccess) {
-        alert('Message sent successfully!')
+        alert('Message sent successfully!');
       } else {
-        alert('Message not sent correctly')
+        alert('Message not sent correctly');
       }
     },
   });
   if (submitSuccess) {
     return (
       <Band outerCSS={bandStyle}>
-        <p css={{textAlign: 'start', width: '500px'}}>Thank you for reaching out! We'll chat soon!</p>
-        <div css={{textAlign: 'end', width: '500px'}}><Link href="/">◂ Home</Link></div>
+        <p css={{ textAlign: 'start', width: '500px' }}>
+          Thank you for reaching out! We'll chat soon!
+        </p>
+        <div css={{ textAlign: 'end', width: '500px' }}>
+          <Link href="/">◂ Home</Link>
+        </div>
       </Band>
     );
-    } else {
-      return (
-        <Band outerCSS={Object.assign(bandStyle, {paddingTop: '0px'})}>
-          <form onSubmit={formik.handleSubmit} css={formStyle}>
-            <div css={inputDiv}>
-              <input 
-                id="subject" 
-                name="subject" 
-                type="text"
-                placeholder="Subject"
-                onChange={formik.handleChange}
-                value={formik.values.subject}
-                css={{ marginBottom: formik.errors.subject ? '0em' : '24px'}}
-              />
-            </div>
-            {formik.errors.subject ? <div css={errorText}>{formik.errors.subject}</div> : null}
-            <div css={inputDiv}>
-              <input 
-                id="email" 
-                name="email" 
-                type="email"
-                placeholder="Email"
-                onChange={formik.handleChange}
-                value={formik.values.email}
-                css={{ marginBottom: formik.errors.email ? '0em' : '24px'}}
-              />
-            </div>
-            {formik.errors.email ? <div css={errorText}>{formik.errors.email}</div> : null}
-            <div css={inputDiv}>
-              <textarea 
-                id="body" 
-                name="body" 
-                placeholder="Body"
-                onChange={formik.handleChange}
-                value={formik.values.body}
-                className={roboto_flex.className}
-                css={{ marginBottom: formik.errors.body ? '0em' : '24px'}}
-              />
-            </div>
-            {formik.errors.body ? <div css={errorText}>{formik.errors.body}</div> : null}
-            <div css={[inputDiv, {display: 'flex', justifyContent: 'flex-end'}]}>
-              <button type="submit" css={buttonStyle}>SEND MESSAGE</button>
-            </div>
-          </form>
-        </Band>
-    )
+  } else {
+    return (
+      <Band outerCSS={Object.assign(bandStyle, { paddingTop: '0px' })}>
+        <form onSubmit={formik.handleSubmit} css={formStyle}>
+          <div css={inputDiv}>
+            <input
+              id="subject"
+              name="subject"
+              type="text"
+              placeholder="Subject"
+              onChange={formik.handleChange}
+              value={formik.values.subject}
+              css={{ marginBottom: formik.errors.subject ? '0em' : '24px' }}
+            />
+          </div>
+          {formik.errors.subject ? (
+            <div css={errorText}>{formik.errors.subject}</div>
+          ) : null}
+          <div css={inputDiv}>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="Email"
+              onChange={formik.handleChange}
+              value={formik.values.email}
+              css={{ marginBottom: formik.errors.email ? '0em' : '24px' }}
+            />
+          </div>
+          {formik.errors.email ? (
+            <div css={errorText}>{formik.errors.email}</div>
+          ) : null}
+          <div css={inputDiv}>
+            <textarea
+              id="body"
+              name="body"
+              placeholder="Body"
+              onChange={formik.handleChange}
+              value={formik.values.body}
+              className={roboto_flex.className}
+              css={{ marginBottom: formik.errors.body ? '0em' : '24px' }}
+            />
+          </div>
+          {formik.errors.body ? (
+            <div css={errorText}>{formik.errors.body}</div>
+          ) : null}
+          <div
+            css={[inputDiv, { display: 'flex', justifyContent: 'flex-end' }]}
+          >
+            <SubmitButton buttonCSS={{fontSize: '1.5em'}} text='SEND MESSAGE'/>
+          </div>
+        </form>
+      </Band>
+    );
   }
 };
 

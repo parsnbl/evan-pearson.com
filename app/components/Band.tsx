@@ -15,13 +15,15 @@ import { CustomRef } from '@/hooks/useDimensions';
 const bandOuter = {
   //border: '1px solid black',
   minHeight: 'fit-content',
-  boxSizing: 'border-box'
+  boxSizing: 'border-box',
+
 }; 
 
 const bandInner = {
   padding: '1em 2em 1em 2em',
-  width: 'calc(100% - 4em)',
-  height: 'calc(100% - 2em)',
+  width: '100%',
+  height: '100%'
+
 
 
 

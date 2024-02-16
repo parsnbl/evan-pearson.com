@@ -50,7 +50,7 @@ const Hero = ({ iconMatDim }: HeroCustomization) => {
     >
       <h1 css={{ fontSize: '60px' }}>
         Hello, I'm{' '}
-        <span css={{ color: colors.pompAndPower }}>Evan Pearson</span>
+        <span css={{ color: colors.pompAndPower, fontFamily: 'Roboto Condensed' }}>Evan Pearson</span>
       </h1>
 
       <p>

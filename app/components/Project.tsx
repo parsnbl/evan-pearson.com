@@ -7,10 +7,10 @@ import { css } from '@emotion/react';
 
 import { colors, lightBorder, roboto_mono } from '@/styles';
 import { Github, Globe  } from 'lucide-react';
-
+import Icon from './Icon'
 
 import Band from '@/components/Band';
-
+import { ProjectData } from '../../declarations';
 
 const projectWrapper = css({
   border: lightBorder,
@@ -19,16 +19,6 @@ const projectWrapper = css({
   minWidth: '731px'
 })
 
-
-interface ProjectData {
-  title: string,
-  imageSlug: string,
-  description: string[],
-  tags: string[],
-  web?: string,
-  github?: string,
-  npm?: string,
-}
 
 
 const Project = ({
@@ -51,47 +41,17 @@ const Project = ({
       
       if (web) {
         linkArr.push(
-          <a 
-            href={web}
-            css={{
-              width: '24px',
-              height: '24px',
-              display: 'inline-block'
-            }}
-            key={crypto.randomUUID()}
-            target="_blank"
-            rel="noreferrer noopener"
-          ><Globe css={{marginRight: '.5em'}}/></a>
+          <Icon key={crypto.randomUUID()} href={web} icon='web' />
         );
       }
       if (github) {
         linkArr.push(
-          <a
-            href={github}
-            css={{
-              width: '24px',
-              height: '24px',
-              display: 'inline-block'
-            }}
-            key={crypto.randomUUID()}
-            target="_blank"
-            rel="noreferrer noopener"
-          ><Github css={{marginRight: '.5em'}}/></a>
+          <Icon key={crypto.randomUUID()} href={github} icon='github' />
         );
       }
       if (npm) {
         linkArr.push(
-          <a 
-            href={npm}
-            css={{
-              width: '24px',
-              height: '24px',
-              display: 'inline-block'
-            }}
-            key={crypto.randomUUID()}
-            target="_blank"
-            rel="noreferrer noopener"
-          ><Image src="/assets/npm.svg" alt="npm" height={24} width={24} css={{':active': { filter: 'invert(64%) sepia(82%) saturate(522%) hue-rotate(169deg) brightness(90%) contrast(90%)'}}}/></a>
+          <Icon  key={crypto.randomUUID()} href={npm} icon='npm' />
         );
       }
       return {  descArr, tagsElem, linkArr };
@@ -102,39 +62,41 @@ const Project = ({
     
 
     return (
-              <div css={projectWrapper}>
-                <h2 css={{marginTop: 0, padding: 0}}>{title}</h2>
-                <div css={css({
-                  display: 'flex',
-                })}>
-                  <Image 
-                    src={`/projects/${imageSlug}`}
-                    css={{border: lightBorder, marginRight: '10px'}}
-                    alt={title}
-                    height={300}
-                    width={300}
-                  />
-                  <div 
-                    css={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      '& :nth-child(1)': {
-                        flexGrow: 1
-                      }
-                  }}>
-                    <div>
-                      {descArr}
-                    </div>
-                    <p 
-                      className={roboto_mono.className}
-                      css={{fontSize: '.8em'}}
-                    >{tagsElem}</p>
-                    <div>
-                     {linkArr}
-                    </div>
-                  </div>
-                </div>
-              </div>
+
+    <div css={projectWrapper}>
+      <h2 css={{margin: 0}}>{title}</h2>
+      <div css={css({
+        display: 'flex',
+      })}>
+        <Image 
+          src={`/projects/${imageSlug}`}
+          css={{border: lightBorder, marginRight: '10px'}}
+          alt={title}
+          height={300}
+          width={300}
+        />
+        <div 
+          css={{
+            display: 'flex',
+            flexDirection: 'column',
+            '& :nth-child(1)': {
+              flexGrow: 1
+            }
+        }}>
+          <div css={{'p': {marginTop:0}}}>
+            {descArr}
+          </div>
+          <p 
+            className={roboto_mono.className}
+            css={{fontSize: '.8em', marginTop:0}}
+          >{tagsElem}</p>
+          <div>
+            {linkArr}
+          </div>
+        </div>
+      </div>
+    </div>
+    
     );
 };
 

@@ -5,16 +5,17 @@ import { colors, iconBackground, lightBorder } from '@/styles';
 
 import Band from './components/Band';
 import ProjectArray from './projects/components/ProjectsArray';
-import SkillsWrapper from './about/components/SkillsWrapper';
+import SkillsWrapper from './components/SkillsWrapper';
 // import { Frontend, Backend, Cloud, Growth } from './about/components/Skills';
-import { Skill } from './about/components/Skills';
-import Blurb from './about/components/Blurb'
-import Button from './components/Button';
-
+import { Skill } from './components/Skills';
+import Blurb from './components/Blurb';
+import LinkButton from './components/LinkButton';
+import { Github, Linkedin } from 'lucide-react';
 import Hero from './components/Hero';
 
 import { CustomRef, Dimensions } from './hooks/useDimensions';
 import useDimensions from './hooks/useDimensions';
+
 
 const heroBandOuterCSS = {
   height: '60vh',
@@ -63,11 +64,10 @@ export default function Page() {
         <Hero iconMatDim={heroBandDim} />
       </Band>
       <Band outerCSS={elevatorPitchOuterCSS}>
-       <Blurb />
-
+        <Blurb />
       </Band>
       <Band innerCSS={projectsBandInnerCSS}>
-        <h2 css={{ paddingLeft: '32px' , marginTop: 0}}>FEATURED PROJECTS</h2>
+        <h2 css={{ paddingLeft: '32px', marginTop: 0 }}>FEATURED PROJECTS</h2>
         <div
           css={{
             display: 'flex',
@@ -97,7 +97,7 @@ export default function Page() {
         >
           SKILLS
         </h2>
-    
+
         <SkillsWrapper>
           <Skill skill="languages" />
           <Skill skill="frontend" columns={2} />
@@ -105,7 +105,7 @@ export default function Page() {
           <Skill skill="data" />
           <Skill skill="growth" />
           <Skill skill="cloud" />
-          <Skill skill="backend" />
+          <Skill skill="martech" />
         </SkillsWrapper>
       </Band>
       <Band
@@ -116,7 +116,9 @@ export default function Page() {
           paddingTop: '40px',
         }}
       >
-        <Button buttonCSS={{ fontSize: '3em' }} text="LET'S TALK!" />
+        <LinkButton buttonCSS={{ fontSize: '3em' }} href="/contact">
+          LET'S TALK!
+        </LinkButton>
       </Band>
     </>
   );

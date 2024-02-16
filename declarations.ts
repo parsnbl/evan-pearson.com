@@ -10,3 +10,13 @@ export interface StyledWrapped {
   children: React.ReactNode,
   cssStyles?: SerializedStyles | null
 }
+
+export interface ProjectData {
+  title: string,
+  imageSlug: string,
+  description: string[],
+  tags: string[],
+  web?: string,
+  github?: string,
+  npm?: string,
+}

@@ -5,11 +5,11 @@ import { css } from '@emotion/react';
 import Link from 'next/link';
 import Band from '@/components/Band';
 import Project from '@/components/Project';
-
+import Icon from '@/components/Icon';
 
 import { Github, Linkedin } from 'lucide-react';
 
-import { roboto_condensed, roboto_flex } from '@/styles';
+import { roboto_condensed, roboto_flex } from '@/sty';
 
 import { useFormik } from 'formik';
 
@@ -24,7 +24,7 @@ const MAX_BODY_LENGTH = 2083;
 
 
 
-export default function Proto() {
+export default function Contact() {
   
   const bandStyle = {
     display: 'flex',
@@ -36,21 +36,13 @@ export default function Proto() {
   return (
     <>
       <Band outerCSS={bandStyle}>
-        <div css={{textAlign: 'start', width: '500px'}}>
+        <div css={{textAlign: 'start', width: ''}}>
           <div css={{display: 'flex', alignItems: 'center', justifyContent: 'flex-end', marginBottom: '1em'}}>
             <h2 css={{margin: '0px', flexGrow: 1}}>CONTACT</h2>
             <div css={{borderRight: '1px solid black'}}>SOCIAL&nbsp;</div>
             <div>&nbsp;
-              <Link 
-                href="https://github.com/parsnbl"
-                target="_blank"
-                rel="noopener noreferrer"
-              ><Github /></Link>
-              <Link 
-                href="https://www.linkedin.com/in/evanpearson89/"
-                target="_blank"
-                rel="noopener noreferrer"
-              ><Linkedin /></Link>
+              <Icon icon='github' href='https://github.com/parsnbl'/>
+              <Icon icon='linkedin' href='https://www.linkedin.com/in/evanpearson89/'/>
             </div>
           </div>
           <p css={{margin: '0px', flexGrow: 1}}>Get in touch! I'm always interested in chatting freelance projects or collaboration opportunities.</p>

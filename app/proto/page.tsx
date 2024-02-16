@@ -1,40 +1,75 @@
-'use client'
+'use client';
 
-import React from 'react';
+import { useState } from 'react';
 import { css } from '@emotion/react';
-import Link from 'next/link';
+
 import Band from '@/components/Band';
+import ProjectArray from './components/ProjectsArray';
 import Project from '@/components/Project';
-import ProjectArray from '@/projects/components/ProjectsArray';
+import Tag from '@/components/Tag';
 
-
-import { roboto_condensed, roboto_flex } from '@/styles';
-
-import { useFormik } from 'formik';
-
+import projects from './project.json';
 import { colors } from '@/styles';
 
+import LinkButton from '@/components/LinkButton';
 
-const MAX_SUBJECT_LENGTH = 140;
-const MAX_BODY_LENGTH = 2083;
+const Page = () => {
+  const [filteredTags, setFilteredTags] = useState<string[]>([])
+  const projectArr = [];
 
 
+  const updateFilteredTags = ({tag, add}: {tag: string, add: boolean}) => {
+    if (add) {
+      let update = filteredTags.filter(elem => elem !== tag)
+      setFilteredTags(update);
+    } else {
+      setFilteredTags(Array.from(new Set([...filteredTags, tag])));
+    }
+    console.log('tags updated', filteredTags)
+    return;
+  }
 
+  const tags = {};
+  for (const project of projects) {
+    projectArr.push(<Project {...project} />);
+    for (let elem of project.tags) {
+      if (!(elem in tags)) tags[elem] = 0
+      tags[elem] += 1;
+    }
+  }
+  const tagElems: React.ReactNode[] = [];
+  Object.keys(tags).forEach(elem => {
+    tagElems.push(
+      <Tag key={crypto.randomUUID()} tag={elem} count={tags[elem]} clickCallback={updateFilteredTags}/>
+    )
+  })
 
-export default function Proto() {
   
-  const bandStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    border: '1px solid black',
-  };
 
-
+  
+  // const filterCallback = filteredTags.length > 0 ? 
+  //   (project) => filteredTags.every(tag => {project.tags.includes(tag)}):
+  //   undefined;
   return (
     <>
-      <ProjectArray />
-    </>    
-    
+      <Band outerCSS={{background: colors.white}}>
+        <h1>RECENT PROJECTS</h1>
+        {Object.keys(tags).map(elem => (
+          <Tag key={crypto.randomUUID()} tag={elem} count={tags[elem]} clickCallback={updateFilteredTags}/>
+        ))}
+      </Band>
+      <Band outerCSS={{ width: 'calc(731px + 4em)', background: colors.white }}>
+        <ProjectArray tags={filteredTags}/>
+      </Band>
+      <Band innerCSS={{display: 'flex', justifyContent: 'center'}}>
+        <LinkButton
+          buttonCSS={{ fontSize: '2em' }}
+          href="/contact">
+            LET'S TALK!
+        </LinkButton>
+      </Band>
+    </>
   );
-}
+};
+
+export default Page;
