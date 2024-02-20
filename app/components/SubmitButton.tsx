@@ -5,10 +5,9 @@ import { colors } from '@/styles';
 import { FullCSSInterpolation } from '../../declarations';
 
 interface SubmitButtonProps {
-  wrapperCSS?: FullCSSInterpolation
-  buttonCSS?: FullCSSInterpolation
-  text: string
-
+  wrapperCSS?: FullCSSInterpolation;
+  buttonCSS?: FullCSSInterpolation;
+  text: string;
 }
 
 const SubmitButton = ({ wrapperCSS, buttonCSS, text }: SubmitButtonProps) => {
@@ -38,8 +37,8 @@ const SubmitButton = ({ wrapperCSS, buttonCSS, text }: SubmitButtonProps) => {
       boxShadow: `8px 8px ${colors.pictonBlue}`,
     },
   });
-  if (wrapperCSS) wrapper = css([wrapper, wrapperCSS])
-  if (buttonCSS) button = css([button, buttonCSS])
+  if (wrapperCSS) wrapper = css([wrapper, wrapperCSS]);
+  if (buttonCSS) button = css([button, buttonCSS]);
   return (
     <div css={wrapper}>
       <button type="submit" css={button}>

@@ -1,8 +1,6 @@
 'use client';
 
-
 import { css } from '@emotion/react';
-
 
 import { colors, container } from '@/styles';
 import { Wrapped } from '../../declarations';

@@ -1,11 +1,9 @@
 'use client';
 
-
 import Band from '@/components/Band';
 import Icon from '@/components/Icon';
 import ContactForm from './components/ContactForm';
 import { css } from '@emotion/react';
-
 
 export default function Contact() {
   const contactCSS = css({
@@ -38,8 +36,8 @@ export default function Contact() {
             </div>
           </div>
           <p css={{ margin: '0px', flexGrow: 1 }}>
-            Get in touch! I&apos;m always interested in chatting freelance projects
-            or collaboration opportunities.
+            Get in touch! I&apos;m always interested in chatting freelance
+            projects or collaboration opportunities.
           </p>
         </div>
       </Band>

@@ -1,6 +1,5 @@
 'use client';
 
-
 import { Wrapped } from '../../declarations';
 import { iconBackground } from '@/styles';
 
@@ -14,7 +13,6 @@ export default function Layout({ children }: Wrapped) {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-
       }}
     >
       <div
@@ -22,7 +20,6 @@ export default function Layout({ children }: Wrapped) {
           display: 'flex',
           flexDirection: 'column',
           width: 'calc(731px + 4em)',
-
         }}
       >
         {children}

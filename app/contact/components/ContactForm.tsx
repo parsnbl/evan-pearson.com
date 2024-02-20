@@ -146,7 +146,10 @@ const ContactForm = () => {
               placeholder="Body"
               onChange={formik.handleChange}
               value={formik.values.body}
-              css={{ marginBottom: formik.errors.body ? '0em' : '24px', fontFamily: 'Roboto Flex' }}
+              css={{
+                marginBottom: formik.errors.body ? '0em' : '24px',
+                fontFamily: 'Roboto Flex',
+              }}
             />
           </div>
           {formik.errors.body ? (

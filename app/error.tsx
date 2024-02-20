@@ -5,7 +5,6 @@ import { colors, lightBorder, iconBackground } from '@/styles';
 import CallbackButton from './components/CallbackButton';
 import { AlertTriangle } from 'lucide-react';
 
-
 export default function Error({
   error,
   reset,
@@ -47,11 +46,12 @@ export default function Error({
             padding: '20px',
           }}
         >
-          <h1><AlertTriangle />&nbsp;Error</h1>
+          <h1>
+            <AlertTriangle />
+            &nbsp;Error
+          </h1>
           <h2>Wait, this wasn&apos;t supposed to happen...</h2>
-          <CallbackButton onClick={()=> reset()}>
-            TRY AGAIN?
-          </CallbackButton>
+          <CallbackButton onClick={() => reset()}>TRY AGAIN?</CallbackButton>
         </div>
       </div>
     </div>

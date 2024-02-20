@@ -12,6 +12,20 @@
     "npm": "https://www.npmjs.com/package/@wave.js/wave.js"
   },
   {
+    "title": "evan-pearson.com",
+    "imageSlug": "portfolio.png",
+    "description": ["This portfolio site!"],
+    "tags": [
+      "React",
+      "NextJS",
+      "EmotionJS",
+      "Formik",
+      "Nodemailer",
+      "Typescript"
+    ],
+    "github": "https://github.com/parsnbl/evan-pearson.com"
+  },
+  {
     "title": "Stager",
     "imageSlug": "stager.svg",
     "description": [

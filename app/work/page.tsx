@@ -6,26 +6,25 @@ import Band from '@/components/Band';
 import Project from '@/components/Project';
 import Tag from '@/components/Tag';
 
-
 import { colors, lightBorder } from '@/styles';
 import { ProjectData } from '../../declarations';
 import LinkButton from '@/components/LinkButton';
 import Loading from './loading';
 
-type TagCountsObject = { [index: string]: number }
-type TagActivesObject = { [index: string]: boolean }
+type TagCountsObject = { [index: string]: number };
+type TagActivesObject = { [index: string]: boolean };
 
 const Page = () => {
   const [filterTags, setFilterTags] = useState<string[]>([]);
   const [renderList, setRenderList] = useState<ProjectData[]>([]);
   const [tagActives, setTagActives] = useState<TagActivesObject>({});
-  const [tagCounts, setTagsCounts] = useState<TagCountsObject>({})
-  const [projects, setProjects] = useState<ProjectData[]>([])
-  const [projectsLoading, setProjectsLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [tagCounts, setTagsCounts] = useState<TagCountsObject>({});
+  const [projects, setProjects] = useState<ProjectData[]>([]);
+  const [projectsLoading, setProjectsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   //fetch projects
-  useEffect(()=> {
+  useEffect(() => {
     fetch('/api/projects')
       .then((res) => res.json())
       .then((data: ProjectData[]) => {
@@ -41,13 +40,13 @@ const Page = () => {
           }
         });
         setTagsCounts(tagCounts);
-        setTagActives(tagActive)
-        setRenderList(data)
+        setTagActives(tagActive);
+        setRenderList(data);
       })
-      .catch(err => {
-        setError(err)
-      })
-  }, [])
+      .catch((err) => {
+        setError(err);
+      });
+  }, []);
 
   //filter the projects
   useEffect(() => {
@@ -77,16 +76,18 @@ const Page = () => {
     update[tag] = !tagActives[tag];
     setTagActives(update);
   };
-  if (projectsLoading) return <Loading />
+  if (projectsLoading) return <Loading />;
   if (error) throw error;
   return (
     <>
-      <Band outerCSS={{ 
-        background: colors.white,
-        borderTop: lightBorder,
-        borderLeft: lightBorder,
-        borderRight: lightBorder,
-        }}>
+      <Band
+        outerCSS={{
+          background: colors.white,
+          borderTop: lightBorder,
+          borderLeft: lightBorder,
+          borderRight: lightBorder,
+        }}
+      >
         <h1>RECENT PROJECTS</h1>
         {Object.keys(tagCounts).map((elem) => (
           <Tag
@@ -98,20 +99,22 @@ const Page = () => {
           />
         ))}
       </Band>
-      <Band outerCSS={{ 
-        width: 'calc(731px + 4em)', 
-        background: colors.white,
-        borderLeft: lightBorder,
-        borderRight: lightBorder,
-        borderBottom: lightBorder
-        }}>
-          {renderList.map((project) => {
-            return <Project key={crypto.randomUUID()} {...project} />;
-          })}
+      <Band
+        outerCSS={{
+          width: 'calc(731px + 4em)',
+          background: colors.white,
+          borderLeft: lightBorder,
+          borderRight: lightBorder,
+          borderBottom: lightBorder,
+        }}
+      >
+        {renderList.map((project) => {
+          return <Project key={crypto.randomUUID()} {...project} />;
+        })}
       </Band>
       <Band innerCSS={{ display: 'flex', justifyContent: 'center' }}>
         <LinkButton buttonCSS={{ fontSize: '2em' }} href="/contact">
-          LET&apos;S TALK! 
+          LET&apos;S TALK!
         </LinkButton>
       </Band>
     </>

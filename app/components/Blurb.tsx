@@ -68,15 +68,15 @@ const Blurb = () => {
           My name is Evan Pearson and I&apos;m a{' '}
           <span css={{ fontWeight: 'bold' }}>full-stack software engineer</span>
           . I build cool things throughout the stack, from performant SPAs to
-          eCommerce that converts. I&apos;m bullish on the Internet, Entertainment,
-          and Video Gaming. When I&apos;m not coding, I&apos;m making music, cooking,
-          reading, and hiking.
+          eCommerce that converts. I&apos;m bullish on the Internet,
+          Entertainment, and Video Gaming. When I&apos;m not coding, I&apos;m
+          making music, cooking, reading, and hiking.
         </p>
         <p>
           I love bootstrapping and making an impact. I have a passion for growth
           and making cool products that{' '}
-          <span css={{ fontWeight: 'bold' }}>customers love</span>. I&apos;m always
-          looking for collaborators.
+          <span css={{ fontWeight: 'bold' }}>customers love</span>. I&apos;m
+          always looking for collaborators.
         </p>
       </div>
     </div>

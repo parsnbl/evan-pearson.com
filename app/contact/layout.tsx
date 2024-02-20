@@ -1,6 +1,5 @@
 'use client';
 
-
 import { Wrapped } from '../../declarations';
 import { lightBorder } from '@/styles';
 import { iconBackground } from '@/styles';

@@ -4,15 +4,12 @@ import { useState, useEffect } from 'react';
 import Project from '@/components/Project';
 import { ProjectData } from '../../../declarations';
 
-
-
-
 const ProjectArray = () => {
-  const [projects, setProjects] = useState<ProjectData[]>([])
-  const [projectsLoading, setProjectsLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [projects, setProjects] = useState<ProjectData[]>([]);
+  const [projectsLoading, setProjectsLoading] = useState(true);
+  const [error, setError] = useState(null);
   //fetch projects
-  useEffect(()=> {
+  useEffect(() => {
     fetch('/api/projects')
       .then((res) => res.json())
       .then((data: ProjectData[]) => {
@@ -27,20 +24,20 @@ const ProjectArray = () => {
             tagCounts[tag] += 1;
           }
         });
- 
       })
-      .catch(err => {
-        setError(err)
-      })
-  }, [])
-
+      .catch((err) => {
+        setError(err);
+      });
+  }, []);
 
   if (error) throw error;
   return (
     <>
-      {!projectsLoading ? projects.map((project) => (
-        <Project key={crypto.randomUUID()} {...project} />
-      )) : null}
+      {!projectsLoading
+        ? projects.map((project) => (
+            <Project key={crypto.randomUUID()} {...project} />
+          ))
+        : null}
     </>
   );
 };

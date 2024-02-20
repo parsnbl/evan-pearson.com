@@ -3,8 +3,7 @@
 import React from 'react';
 import { colors } from '@/styles';
 
-
-const BigTag = ({children}: {children: React.ReactNode}) => {
+const BigTag = ({ children }: { children: React.ReactNode }) => {
   return (
     <li
       css={{
@@ -13,13 +12,13 @@ const BigTag = ({children}: {children: React.ReactNode}) => {
         fontSize: '28px',
         padding: '3px',
         display: 'inline-block',
-        fontFamily: 'Roboto Mono'
+        fontFamily: 'Roboto Mono',
       }}
     >
       {children}
     </li>
   );
-}
+};
 
 const Hero = () => {
   return (
@@ -71,8 +70,8 @@ const Hero = () => {
             maxWidth: '650px',
             margin: '2px 0px',
             '& li': {
-              marginRight: '.2em'
-            }
+              marginRight: '.2em',
+            },
           }}
         >
           <BigTag>DIGITAL MARKETING</BigTag>

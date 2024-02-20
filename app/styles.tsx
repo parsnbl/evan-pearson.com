@@ -1,4 +1,3 @@
-
 import laugh from '@public/assets/laugh.svg';
 import atom from '@public/assets/atom.svg';
 import audiowaveform from '@public/assets/audio-waveform.svg';

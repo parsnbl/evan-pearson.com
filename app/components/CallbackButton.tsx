@@ -5,13 +5,18 @@ import { colors } from '@/styles';
 import { FullCSSInterpolation } from '../../declarations';
 
 interface CallbackButtonProps {
-  children: React.ReactNode | React.ReactNode[]
-  wrapperCSS?: FullCSSInterpolation
-  buttonCSS?: FullCSSInterpolation
-  onClick?: ()=> void
+  children: React.ReactNode | React.ReactNode[];
+  wrapperCSS?: FullCSSInterpolation;
+  buttonCSS?: FullCSSInterpolation;
+  onClick?: () => void;
 }
 
-const CallbackButton = ({children, wrapperCSS, buttonCSS, onClick }: CallbackButtonProps) => {
+const CallbackButton = ({
+  children,
+  wrapperCSS,
+  buttonCSS,
+  onClick,
+}: CallbackButtonProps) => {
   let wrapper = css({
     '& a:hover': {
       outline: 'none',
@@ -38,8 +43,8 @@ const CallbackButton = ({children, wrapperCSS, buttonCSS, onClick }: CallbackBut
       boxShadow: `8px 8px ${colors.pictonBlue}`,
     },
   });
-  if (wrapperCSS) wrapper = css([wrapper, wrapperCSS])
-  if (buttonCSS) button = css([button, buttonCSS])
+  if (wrapperCSS) wrapper = css([wrapper, wrapperCSS]);
+  if (buttonCSS) button = css([button, buttonCSS]);
   return (
     <div css={wrapper}>
       <button css={button} onClick={onClick}>

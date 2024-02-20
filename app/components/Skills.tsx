@@ -15,8 +15,6 @@ import { colors, lightBorder } from '@/styles';
 
 import { SkillType, SkillsData } from '../../declarations';
 
-
-
 const skillsIcons = {
   frontend: () => <Ratio />,
   backend: () => <Server />,
@@ -137,8 +135,6 @@ const listHeaderCSS = css({
   },
 });
 
-
-
 export const Skill = ({
   skill,
   columns,
@@ -148,7 +144,6 @@ export const Skill = ({
   columns?: number;
   skillCSS?: FullCSSInterpolation;
 }) => {
-
   const ulCSS = {
     margin: '0px',
     columns: 1,
@@ -169,7 +164,7 @@ export const Skill = ({
         <h3>&nbsp;{skillsCopy[skill].title}</h3>
       </div>
       <ul css={ulCSS}>
-        {subSkills.map(text => (
+        {subSkills.map((text) => (
           <li key={crypto.randomUUID()}>{text}</li>
         ))}
       </ul>

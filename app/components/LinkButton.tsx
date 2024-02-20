@@ -6,16 +6,21 @@ import Link from 'next/link';
 import { colors } from '@/styles';
 import { FullCSSInterpolation } from '../../declarations';
 
-
 interface LinkButtonProps {
-  children: React.ReactNode | React.ReactNode[],
-  wrapperCSS?: FullCSSInterpolation
-  buttonCSS?: FullCSSInterpolation
-  href: string
-  ext?: boolean
+  children: React.ReactNode | React.ReactNode[];
+  wrapperCSS?: FullCSSInterpolation;
+  buttonCSS?: FullCSSInterpolation;
+  href: string;
+  ext?: boolean;
 }
 
-const LinkButton = ({ children, wrapperCSS, buttonCSS, href, ext = false }: LinkButtonProps) => {
+const LinkButton = ({
+  children,
+  wrapperCSS,
+  buttonCSS,
+  href,
+  ext = false,
+}: LinkButtonProps) => {
   let wrapper = {
     '& a:hover': {
       outline: 'none',

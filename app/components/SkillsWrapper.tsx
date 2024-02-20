@@ -3,7 +3,6 @@
 import React from 'react';
 import { SerializedStyles } from '@emotion/react';
 
-
 const twoColumn = {
   display: 'grid',
   gridTemplateColumns: 'repeat(auto-fit, 335px)',
