@@ -90,9 +90,9 @@ const ContactForm = () => {
       setSubmitSuccess(true);
       const response = await mail(values);
       if (response.messageSuccess) {
-        alert('Message sent successfully!');
+        console.log('Message sent successfully!');
       } else {
-        alert('Message not sent correctly');
+        console.log('Message not sent correctly');
       }
     },
   });
