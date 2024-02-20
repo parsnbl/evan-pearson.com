@@ -1,5 +1,5 @@
 'use client';
-import Link from 'next/link';
+
 import { colors, lightBorder, iconBackground } from '@/styles';
 import LinkButton from './components/LinkButton';
 import { SearchX } from 'lucide-react';

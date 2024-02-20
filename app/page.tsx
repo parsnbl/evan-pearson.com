@@ -3,7 +3,7 @@
 import { colors, iconBackground, lightBorder } from '@/styles';
 import { css } from '@emotion/react';
 import Band from './components/Band';
-import ProjectArray from './projects/components/ProjectsArray';
+import ProjectArray from './work/components/ProjectsArray';
 import SkillsWrapper from './components/SkillsWrapper';
 
 import { Skill } from './components/Skills';
@@ -46,7 +46,6 @@ const skillsBandInnerCSS = css({
   paddingTop: 0,
   paddingBottom: 0,
 });
-
 
 export default function Page() {
   return (

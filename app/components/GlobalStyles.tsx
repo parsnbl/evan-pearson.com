@@ -44,6 +44,7 @@ export default function GlobalStyles() {
           a: {
             fontFamily: 'Roboto Condensed',
             textDecoration: 'none',
+            color: colors.black,
             ':visited': {
               color: colors.black,
             },

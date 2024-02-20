@@ -54,7 +54,7 @@ const Header = () => {
       </Link>
       <nav>
         <ul css={navCSS}>
-          <Link href="/projects">
+          <Link href="/work">
             <li>WORK</li>
           </Link>
           <Link href={'/assets/EvanPearson_Resume.pdf'}>
