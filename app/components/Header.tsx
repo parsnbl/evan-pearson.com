@@ -6,7 +6,8 @@ import facepaint from 'facepaint';
 import Link from 'next/link';
 import { colors } from '@/styles';
 
-import { FlameKindling, Code, Zap, Target } from 'lucide-react';
+import { FlameKindling, Code, Zap, Target, Home } from 'lucide-react';
+
 
 const navContainer = css({
   display: 'flex',
@@ -56,6 +57,7 @@ const Header = () => {
     <header css={navContainer}>
       <Link href="/">
         <div css={headerIcon}>
+          {/* <Home /> */}
           <FlameKindling />
           <Zap />
           <Code />

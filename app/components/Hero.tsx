@@ -10,6 +10,8 @@ const mq = facepaint([
   '@media(min-width: 420x)',
   '@media(min-width: 720px)'
 ], {overlap: true})
+
+
 const BigTagList = css(mq({
   display: 'flex',
   flexDirection: ['column','column', 'row'],
@@ -83,17 +85,19 @@ const Hero = () => {
         </h1>
 
         <p css={{fontSize: '2.125em' }}>
-          I&apos;m a Software Engineer who builds for impact. I use a 10+ year
-          career in Growth and skills in
+          I&apos;m a <span css={{ }}>software engineer</span> who <span css={{ fontWeight: 'bold' }}>builds for impact</span>.
         </p>
-        <ul css={BigTagList}>
-          <BigTag>DIGITAL MARKETING</BigTag>
+        <p css={{fontSize: '2.125em' }}>
+          I bring 10 years of experience in growth marketing for top brands to build apps and sites that&nbsp;
+          <span css={{ color: colors.pictonBlue }}>pop</span>.
+        </p>
+        {/* <ul css={BigTagList}>
+          <BigTag>DIGITAL EXPERIENCE</BigTag>
           <BigTag>ANALYTICS</BigTag>
           <BigTag>STRATEGY</BigTag>
-        </ul>
+        </ul> */}
         <p css={{fontSize: '2.125em' }}>
-          to build apps and sites that&nbsp;
-          <span css={{ color: colors.pictonBlue }}>pop</span>.
+         
         </p>
       </div>
     </div>

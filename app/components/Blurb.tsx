@@ -8,6 +8,8 @@ import { Github, Linkedin } from 'lucide-react';
 import { lightBorder } from '@/styles';
 import LinkButton from './LinkButton';
 
+import { colors } from '@/styles';
+
 const mq = facepaint(['@media(min-width:600px)']);
 
 const AboutMe = css(
@@ -82,20 +84,15 @@ const Blurb = () => {
           </LinkButton>
         </div>
       </div>
-      <div>
+      <div css={{ fontSize: '1.5em'}}>
         <p>
           My name is Evan Pearson and I&apos;m a{' '}
           <span css={{ fontWeight: 'bold' }}>full-stack software engineer</span>
           . I build cool things throughout the stack, from performant SPAs to
-          eCommerce that converts. I&apos;m bullish on the Internet,
-          Entertainment, and Video Gaming. When I&apos;m not coding, I&apos;m
-          making music, cooking, reading, and hiking.
+          eCommerce that converts. I have a passion for <span css={{ color: colors.pictonBlue }}>strategy, analytics, and building digital experiences</span> that customers{' '}
+          <span css={{ fontWeight: 'bold' }}>love</span>. 
         </p>
-        <p>
-          I love bootstrapping and making an impact. I have a passion for growth
-          and making cool products that{' '}
-          <span css={{ fontWeight: 'bold' }}>customers love</span>. I&apos;m
-          always looking for collaborators.
+        <p>I&apos;m looking for the next big thing to be apart of. When I&apos;m not coding, I&apos;m making music, adventuring, and getting my cold brew recipe just right.
         </p>
       </div>
     </div>

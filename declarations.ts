@@ -41,4 +41,5 @@ export type SkillType =
 | 'cloud'
 | 'martech'
 | 'growth'
-| 'languages';
+| 'languages'
+| 'collaboration';

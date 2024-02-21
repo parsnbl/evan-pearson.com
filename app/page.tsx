@@ -127,6 +127,7 @@ export default function Page() {
           <Skill skill="growth" />
           <Skill skill="cloud" />
           <Skill skill="martech" />
+          {/* <Skill skill="collaboration" /> */}
         </SkillsWrapper>
       </Band>
       <Band
@@ -138,7 +139,7 @@ export default function Page() {
         }}
       >
         <LinkButton buttonCSS={{ fontSize: '3em' }} href="/contact">
-          LET&apos;S TALK!
+          LET&apos;S DO THIS
         </LinkButton>
       </Band>
     </>

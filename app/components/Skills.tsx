@@ -10,9 +10,11 @@ import {
   CloudLightning,
   TrendingUp,
   Terminal,
+  Handshake
 } from 'lucide-react';
 import { colors, lightBorder } from '@/styles';
 
+<Handshake />
 import { SkillType, SkillsData } from '../../declarations';
 
 const skillsIcons = {
@@ -23,6 +25,7 @@ const skillsIcons = {
   cloud: () => <CloudLightning />,
   growth: () => <TrendingUp />,
   languages: () => <Terminal />,
+  collaboration: () => <Handshake />
 };
 
 const skillsCopy: SkillsData = {
@@ -111,6 +114,10 @@ const skillsCopy: SkillsData = {
     title: 'LANGUAGES',
     skills: ['JavaScript', 'Typescript', 'Python'],
   },
+  collaboration: {
+    title: 'COLLABORATION',
+    skills: []
+  }
 };
 
 const baseSkillCSS = css({
