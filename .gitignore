@@ -38,7 +38,7 @@ cmake-build-*/
 
 # Test coverage
 /coverage.data
-/coverage/
+/coverage
 
 
 # File-based project format
