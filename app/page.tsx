@@ -1,6 +1,5 @@
 'use client';
 
-import Head from 'next/head'
 import { css } from '@emotion/react';
 import facepaint from 'facepaint';
 
