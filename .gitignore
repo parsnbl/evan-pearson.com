@@ -36,6 +36,9 @@ next-env.d.ts
 # CMake
 cmake-build-*/
 
+# Test coverage
+/coverage.data
+/coverage/
 
 
 # File-based project format
