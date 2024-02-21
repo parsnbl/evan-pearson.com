@@ -3,18 +3,45 @@
 import React from 'react';
 import Image from 'next/image';
 import { css } from '@emotion/react';
+import facepaint from 'facepaint';
 
 import { lightBorder } from '@/styles';
 
 import Icon from './Icon';
 import { ProjectData } from '../../declarations';
 
-const projectWrapper = css({
+
+const mq = facepaint([
+  '@media(min-width:405px)',
+  '@media(min-width:710px)'
+])
+
+const projectWrapper = css(mq({
   border: lightBorder,
   padding: '1em',
-  width: '731px',
-  minWidth: '731px',
-});
+  maxWidth: '731px',
+  '& img': {
+    height: ['220px', '300px','300px'],
+    width: ['220px', '300px', '300px']
+  }
+}));
+
+const projectContentWrapper = css(mq({
+  display: 'flex',
+  flexDirection: ['column','column', 'row'],
+  alignItems: ['center', 'center', 'flex-start']
+}))
+
+const projectImage = css(mq({ border: lightBorder, marginRight: ['0px','10px'] }))
+
+const projectTextWrapper = css(mq({
+  display: 'flex',
+  flexDirection: ['column-reverse','column-reverse', 'column'],
+  width: ['200px','300px', 'fit-content'],
+  '& :nth-child(1)': {
+    flexGrow: [0,1],
+  },
+}))
 
 const Project = ({
   title,
@@ -57,28 +84,18 @@ const Project = ({
 
   return (
     <div css={projectWrapper}>
-      <h2 css={{ margin: 0 }}>{title}</h2>
+      <h2 css={{ margin: 0 , display: 'inline-block'}}>{title}</h2>
       <div
-        css={css({
-          display: 'flex',
-        })}
+        css={projectContentWrapper}
       >
         <Image
           src={`/projects/${imageSlug}`}
-          css={{ border: lightBorder, marginRight: '10px' }}
+          css={projectImage}
           alt={title}
           height={300}
           width={300}
         />
-        <div
-          css={{
-            display: 'flex',
-            flexDirection: 'column',
-            '& :nth-child(1)': {
-              flexGrow: 1,
-            },
-          }}
-        >
+        <div css={projectTextWrapper}>
           <div css={{ p: { marginTop: 0 } }}>{descArr}</div>
           <p
             css={{ fontSize: '.8em', marginTop: 0, fontFamily: 'Roboto Mono' }}

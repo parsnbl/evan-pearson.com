@@ -1,20 +1,51 @@
 'use client';
 
 import React from 'react';
+import facepaint from 'facepaint';
+import { css } from '@emotion/react';
 import { colors } from '@/styles';
+
+
+const mq = facepaint([
+  '@media(min-width: 420x)',
+  '@media(min-width: 720px)'
+], {overlap: true})
+const BigTagList = css(mq({
+  display: 'flex',
+  flexDirection: ['column','column', 'row'],
+  justifyContent: 'flex-start',
+  paddingLeft: '0px',
+  maxWidth: '650px',
+  margin: '2px 0px',
+  '& li': {
+    marginRight: '.2em',
+  },
+}));
+
+const BigTagLi = css({
+  border: `1px solid ${colors.pictonBlue}`,
+  borderRadius: '15px',
+  fontSize: '1.75em',
+  padding: '3px',
+  display: 'inline-block',
+  fontFamily: 'Roboto Mono',
+  width: 'fit-content'
+})
+
+
+const HeroContainer = css(mq({
+  // width: 'calc(100vw + 50px)',
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'flex-end',
+  position: 'relative',
+  fontSize: ['12px', '1px', '16px']
+}))
 
 const BigTag = ({ children }: { children: React.ReactNode }) => {
   return (
-    <li
-      css={{
-        border: `1px solid ${colors.pictonBlue}`,
-        borderRadius: '15px',
-        fontSize: '28px',
-        padding: '3px',
-        display: 'inline-block',
-        fontFamily: 'Roboto Mono',
-      }}
-    >
+    <li css={BigTagLi}>
       {children}
     </li>
   );
@@ -23,14 +54,7 @@ const BigTag = ({ children }: { children: React.ReactNode }) => {
 const Hero = () => {
   return (
     <div
-      css={{
-        width: 'calc(100vw + 50px)',
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'flex-end',
-        position: 'relative',
-      }}
+      css={HeroContainer}
     >
       <div
         css={{
@@ -42,14 +66,14 @@ const Hero = () => {
           justifyContent: 'flex-end',
           backgroundColor: colors.white,
           maxWidth: '750px',
-          fontSize: '34px',
+
           position: 'relative',
           zIndex: 100,
           '& p': { margin: '0px' },
           '& br': { margin: '0px' },
         }}
       >
-        <h1 css={{ fontSize: '60px' }}>
+        <h1 css={{ fontSize: '3.75em' }}>
           Hello, I&apos;m{' '}
           <span
             css={{ color: colors.pompAndPower, fontFamily: 'Roboto Condensed' }}
@@ -58,27 +82,16 @@ const Hero = () => {
           </span>
         </h1>
 
-        <p>
+        <p css={{fontSize: '2.125em' }}>
           I&apos;m a Software Engineer who builds for impact. I use a 10+ year
           career in Growth and skills in
         </p>
-        <ul
-          css={{
-            display: 'flex',
-            justifyContent: 'flex-start',
-            paddingLeft: '0px',
-            maxWidth: '650px',
-            margin: '2px 0px',
-            '& li': {
-              marginRight: '.2em',
-            },
-          }}
-        >
+        <ul css={BigTagList}>
           <BigTag>DIGITAL MARKETING</BigTag>
           <BigTag>ANALYTICS</BigTag>
           <BigTag>STRATEGY</BigTag>
         </ul>
-        <p>
+        <p css={{fontSize: '2.125em' }}>
           to build apps and sites that&nbsp;
           <span css={{ color: colors.pictonBlue }}>pop</span>.
         </p>

@@ -26,7 +26,7 @@ const bandStyle = css({
 
 const formStyle = css({
   display: 'flex',
-  width: '500px',
+  maxWidth: '500px',
   flexDirection: 'column',
 });
 

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { css } from '@emotion/react';
+import facepaint from 'facepaint';
 import Link from 'next/link';
 import { colors } from '@/styles';
 
@@ -26,12 +27,21 @@ const navContainer = css({
 const navCSS = css({
   display: 'inline-flex',
   listStyle: 'none',
+  fontSize: '1em',
   margin: '0px',
   '& li': {
     padding: '0px 10px',
     fontFamily: 'Roboto Condensed',
   },
 });
+const mq = facepaint([
+  '@media(min-width:384px)'
+])
+
+const headerIcon = css(mq({
+  display: 'grid',
+  gridTemplateColumns: ['repeat(2, 1fr)', 'repeat(4, 1fr)' ]
+}))
 
 {
   /* 
@@ -45,7 +55,7 @@ const Header = () => {
   return (
     <header css={navContainer}>
       <Link href="/">
-        <div>
+        <div css={headerIcon}>
           <FlameKindling />
           <Zap />
           <Code />

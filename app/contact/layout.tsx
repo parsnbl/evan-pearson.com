@@ -24,7 +24,7 @@ export default function Layout({ children }: Wrapped) {
           flexDirection: 'column',
           border: lightBorder,
           boxShadow: '1px 1px 3px lightgray',
-          width: 'calc(500px + 4em)',
+          maxWidth: 'calc(500px + 4em)',
         }}
       >
         {children}

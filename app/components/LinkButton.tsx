@@ -14,6 +14,34 @@ interface LinkButtonProps {
   ext?: boolean;
 }
 
+const LinkButtonWrapper =  css({
+  '& a:hover': {
+    outline: 'none',
+  },
+  '& a:active': {
+    backgroundColor: colors.white,
+    color: colors.black,
+  },
+})
+
+const LinkButtonCSS = css({
+  TextAlign: 'center',
+  display: 'inline-block',
+  border: '1px solid black',
+  fontSize: '2em',
+  fontFamily: 'Roboto Condensed',
+  fontWeight: 'bolder',
+  padding: '10px 20px',
+  background: colors.white,
+  ':active': {
+    color: colors.white,
+    backgroundColor: colors.black,
+  },
+  ':hover': {
+    boxShadow: `8px 8px ${colors.pictonBlue}`,
+  },
+})
+
 const LinkButton = ({
   children,
   wrapperCSS,
@@ -21,42 +49,15 @@ const LinkButton = ({
   href,
   ext = false,
 }: LinkButtonProps) => {
-  let wrapper = {
-    '& a:hover': {
-      outline: 'none',
-    },
-    '& a:active': {
-      backgroundColor: colors.white,
-      color: colors.black,
-    },
-  };
-  let button = {
-    TextAlign: 'center',
-    display: 'inline-block',
-    border: '1px solid black',
-    fontSize: '2em',
-    fontFamily: 'Roboto Condensed',
-    fontWeight: 'bolder',
-    padding: '10px 20px',
-    background: colors.white,
-    ':active': {
-      color: colors.white,
-      backgroundColor: colors.black,
-    },
-    ':hover': {
-      boxShadow: `8px 8px ${colors.pictonBlue}`,
-    },
-  };
+ 
   let linkProps = {};
-  if (wrapperCSS) wrapper = Object.assign(wrapper, css);
-  if (buttonCSS) button = Object.assign(button, buttonCSS);
   if (ext)
     linkProps = { ...linkProps, target: '_blank', rel: 'noreferrer noopener' };
 
   return (
-    <div css={wrapper}>
+    <div css={ wrapperCSS ? css([LinkButtonWrapper, wrapperCSS]) : LinkButtonWrapper}>
       <Link href={href} {...linkProps}>
-        <button css={button}>{children}</button>
+        <button css={ buttonCSS ? css([LinkButtonCSS, buttonCSS]): LinkButtonCSS}>{children}</button>
       </Link>
     </div>
   );

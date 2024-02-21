@@ -6,6 +6,9 @@ import Band from '@/components/Band';
 import Project from '@/components/Project';
 import Tag from '@/components/Tag';
 
+import { css } from '@emotion/react';
+import facepaint from 'facepaint';
+
 import { colors, lightBorder } from '@/styles';
 import { ProjectData } from '../../declarations';
 import LinkButton from '@/components/LinkButton';
@@ -13,6 +16,13 @@ import Loading from './loading';
 
 type TagCountsObject = { [index: string]: number };
 type TagActivesObject = { [index: string]: boolean };
+
+
+const TagWrapper = css({
+  display: 'flex',
+  flexWrap: 'wrap'
+
+})
 
 const Page = () => {
   const [filterTags, setFilterTags] = useState<string[]>([]);
@@ -88,20 +98,22 @@ const Page = () => {
           borderRight: lightBorder,
         }}
       >
-        <h1>RECENT PROJECTS</h1>
-        {Object.keys(tagCounts).map((elem) => (
-          <Tag
-            key={crypto.randomUUID()}
-            tag={elem}
-            count={tagCounts[elem] as number}
-            clickCallback={() => filterClickHandler(elem)}
-            isActive={tagActives[elem] as boolean}
-          />
-        ))}
+        <h1 css={{fontSize: '2em', display: 'inline-block'}}>RECENT PROJECTS</h1>
+        <div css={TagWrapper}>
+          {Object.keys(tagCounts).map((elem) => (
+            <Tag
+              key={crypto.randomUUID()}
+              tag={elem}
+              count={tagCounts[elem] as number}
+              clickCallback={() => filterClickHandler(elem)}
+              isActive={tagActives[elem] as boolean}
+            />
+          ))}
+        </div>
       </Band>
       <Band
         outerCSS={{
-          width: 'calc(731px + 4em)',
+          maxWidth: 'calc(731px + 4em)',
           background: colors.white,
           borderLeft: lightBorder,
           borderRight: lightBorder,

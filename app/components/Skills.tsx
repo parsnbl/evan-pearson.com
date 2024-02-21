@@ -114,9 +114,9 @@ const skillsCopy: SkillsData = {
 };
 
 const baseSkillCSS = css({
-  width: '335px',
+
   maxWidth: '335px',
-  minWidth: '335px',
+  minWidth: '320px',
   height: '234px',
   maxHeight: '234px',
   minHeight: '234px',
@@ -146,14 +146,15 @@ export const Skill = ({
 }) => {
   const ulCSS = {
     margin: '0px',
-    columns: 1,
+    display: 'grid',
+    gridTemplateColumns: 'repeat(1, 1fr)',
     '& li': {
       listStyleType: '"▸  "',
     },
   };
 
   if (columns) {
-    ulCSS.columns = columns;
+    ulCSS.gridTemplateColumns = `repeat(${columns}, 1fr)`;
   }
   const subSkills = skillsCopy[skill].skills;
 

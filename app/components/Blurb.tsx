@@ -2,21 +2,54 @@
 
 import Image from 'next/image';
 
+import facepaint from 'facepaint';
+import { css } from '@emotion/react';
 import { Github, Linkedin } from 'lucide-react';
 import { lightBorder } from '@/styles';
 import LinkButton from './LinkButton';
 
+const mq = facepaint(['@media(min-width:600px)']);
+
+const AboutMe = css(
+  mq({
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: ['column', 'row'],
+  }),
+);
+
+const AboutMeImage = css({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+});
+
+const ButtonWrapper = css(mq({
+    display: 'flex',
+    flexDirection: ['column','row'],
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  }));
+
+const ButtonCSS = css(mq({
+  display: 'flex',
+  alignItems: 'center',
+  width: ['100%', 'fit-content'],
+  fontSize: '1em',
+  border: lightBorder,
+}))
+
+const ButtonContainer = css(mq({
+  width: ['100%', 'fit-content']
+}))
+
+
+console.log(ButtonWrapper);
 const Blurb = () => {
   return (
-    <div css={{ display: 'flex', alignItems: 'center' }}>
-      <div
-        css={{
-          marginRight: '1em',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
+    <div css={AboutMe}>
+      <div css={AboutMeImage}>
         <Image
           src="/assets/EvanGC.jpeg"
           alt="Picture of the engineer at the grand canyon."
@@ -28,22 +61,12 @@ const Blurb = () => {
             boxShadow: '1px 1px 3px lightgray',
           }}
         />
-        <div
-          css={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-          }}
-        >
+        <div css={ButtonWrapper}>
           <LinkButton
             href="https://github.com/parsnbl"
             ext={true}
-            buttonCSS={{
-              display: 'flex',
-              alignItems: 'center',
-              fontSize: '1em',
-              border: lightBorder,
-            }}
+            buttonCSS={ButtonCSS}
+            wrapperCSS={ButtonContainer}
           >
             <Github />
             &nbsp;@parsnbl
@@ -51,12 +74,8 @@ const Blurb = () => {
           <LinkButton
             href="https://www.linkedin.com/in/evanpearson89/"
             ext={true}
-            buttonCSS={{
-              display: 'flex',
-              alignItems: 'center',
-              fontSize: '1em',
-              border: lightBorder,
-            }}
+            buttonCSS={ButtonCSS}
+            wrapperCSS={ButtonContainer}
           >
             <Linkedin />
             &nbsp;in/evanpearson89

@@ -8,7 +8,7 @@ export default function Layout({ children }: Wrapped) {
     <div
       css={{
         ...iconBackground,
-        marginTop: '60px',
+        marginTop: '56px',
         padding: '60px 0px',
         display: 'flex',
         flexDirection: 'column',
@@ -19,7 +19,9 @@ export default function Layout({ children }: Wrapped) {
         css={{
           display: 'flex',
           flexDirection: 'column',
-          width: 'calc(731px + 4em)',
+          maxWidth: 'calc(731px + 4em)',
+          minWidth: 'calc(320px - 4em)',
+          fontSize: '16px'
         }}
       >
         {children}
