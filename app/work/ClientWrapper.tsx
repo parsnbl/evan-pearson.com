@@ -2,7 +2,11 @@
 
 import { iconBackground } from '@/styles';
 
-export default function ClientWrapper({ children }:{children: React.ReactNode}): JSX.Element {
+export default function ClientWrapper({
+  children,
+}: {
+  children: React.ReactNode;
+}): JSX.Element {
   return (
     <div
       css={{

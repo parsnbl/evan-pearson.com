@@ -3,7 +3,6 @@
 import { css } from '@emotion/react';
 import facepaint from 'facepaint';
 
-
 import Band from './components/Band';
 import ProjectArray from './work/components/ProjectsArray';
 import SkillsWrapper from './components/SkillsWrapper';
@@ -13,9 +12,6 @@ import LinkButton from './components/LinkButton';
 import Hero from './components/Hero';
 
 import { colors, iconBackground, lightBorder } from '@/styles';
-
-
-
 
 const mq = facepaint([
   '@media(min-width:384px)', //header flip point

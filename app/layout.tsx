@@ -12,22 +12,21 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 
 import Header from '@/components/Header';
 
-
 export const metadata: Metadata = {
   title: 'Evan Pearson',
-  description: 'Evan Pearson is a full-stack software engineer who builds cool things for everyone.',
+  description:
+    'Evan Pearson is a full-stack software engineer who builds cool things for everyone.',
   creator: 'Evan Pearson',
   openGraph: {
     title: 'Evan Pearson',
     siteName: 'Evan Pearson',
-    description:'Evan Pearson is a full-stack software engineer who builds cool things for everyone.',
+    description:
+      'Evan Pearson is a full-stack software engineer who builds cool things for everyone.',
     url: 'https://evan-pearson.com',
     locale: 'en_US',
     type: 'website',
-
-  }
-}
-
+  },
+};
 
 export default function RootLayout({ children }: { children: JSX.Element }) {
   const gaId =
@@ -44,8 +43,8 @@ export default function RootLayout({ children }: { children: JSX.Element }) {
       <body>
         <EmotionRootStyleRegistry>
           <Header />
-           {children}
-        </EmotionRootStyleRegistry> 
+          {children}
+        </EmotionRootStyleRegistry>
         <SpeedInsights />
       </body>
     </html>

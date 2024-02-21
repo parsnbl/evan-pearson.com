@@ -9,7 +9,6 @@ import Link from 'next/link';
 import Band from '@/components/Band';
 import mail from '../hooks/mail';
 
-
 import { colors } from '@/styles';
 
 const MAX_SUBJECT_LENGTH = 140;
