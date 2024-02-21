@@ -25,7 +25,7 @@ const LinkButtonWrapper = css({
 });
 
 const LinkButtonCSS = css({
-  TextAlign: 'center',gi
+  TextAlign: 'center',
   display: 'inline-block',
   border: '1px solid black',
   fontSize: '2em',
