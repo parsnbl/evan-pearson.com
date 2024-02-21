@@ -25,10 +25,11 @@ const LinkButtonWrapper = css({
 });
 
 const LinkButtonCSS = css({
-  TextAlign: 'center',
+  TextAlign: 'center',gi
   display: 'inline-block',
   border: '1px solid black',
   fontSize: '2em',
+  color: colors.black,
   fontFamily: 'Roboto Condensed',
   fontWeight: 'bolder',
   padding: '10px 20px',

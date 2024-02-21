@@ -9,6 +9,9 @@ import Link from 'next/link';
 import Band from '@/components/Band';
 import mail from '../hooks/mail';
 
+
+import { colors } from '@/styles';
+
 const MAX_SUBJECT_LENGTH = 140;
 const MAX_BODY_LENGTH = 2083;
 
@@ -159,7 +162,7 @@ const ContactForm = () => {
             css={[inputDiv, { display: 'flex', justifyContent: 'flex-end' }]}
           >
             <SubmitButton
-              buttonCSS={{ fontSize: '1.5em' }}
+              buttonCSS={{ fontSize: '1.5em', color: colors.black }}
               text="SEND MESSAGE"
             />
           </div>
