@@ -1,31 +1,17 @@
-'use client';
+/* @jsxImportSource react */
 
-import { Wrapped } from '../../declarations';
-import { iconBackground } from '@/styles';
 
-export default function Layout({ children }: Wrapped) {
+import ClientWrapper from './ClientWrapper';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Evan Pearson | Work'
+}
+
+export default function Layout({ children }:{children: React.ReactNode}) {
   return (
-    <div
-      css={{
-        ...iconBackground,
-        marginTop: '56px',
-        padding: '60px 0px',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-      }}
-    >
-      <div
-        css={{
-          display: 'flex',
-          flexDirection: 'column',
-          maxWidth: 'calc(731px + 4em)',
-          minWidth: 'calc(320px - 4em)',
-          fontSize: '16px',
-        }}
-      >
+    <ClientWrapper>
         {children}
-      </div>
-    </div>
+    </ClientWrapper>
   );
 }
