@@ -19,6 +19,14 @@ const config: Config = {
   coveragePathIgnorePatterns: [
     "/node_modules/"
   ],
+  testMatch: [
+    "**/__tests__/**/*.[jt]s?(x)",
+  ],
+  testPathIgnorePatterns: [
+    "/node_modules/",
+    "/.next/",
+    "/__e2e__/"
+  ],
   coverageProvider: "v8",
   testEnvironment: "jsdom",
   moduleNameMapper: {
