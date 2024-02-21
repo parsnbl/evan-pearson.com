@@ -8,7 +8,7 @@ import GlobalStyles from './components/GlobalStyles';
 // import useGtag from './hooks/useGtag';
 // import { WebVitals } from './hooks/WebVitals';
 
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { GoogleAnalytics } from '@next/third-parties/google';
 
 import Header from '@/components/Header';

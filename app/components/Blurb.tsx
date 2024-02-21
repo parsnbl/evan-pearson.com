@@ -26,28 +26,32 @@ const AboutMeImage = css({
   alignItems: 'center',
 });
 
-const ButtonWrapper = css(mq({
+const ButtonWrapper = css(
+  mq({
     display: 'flex',
-    flexDirection: ['column','row'],
+    flexDirection: ['column', 'row'],
     width: '100%',
     alignItems: 'center',
     justifyContent: 'space-between',
-  }));
+  }),
+);
 
-const ButtonCSS = css(mq({
-  display: 'flex',
-  alignItems: 'center',
-  width: ['100%', 'fit-content'],
-  fontSize: '1em',
-  border: lightBorder,
-}))
+const ButtonCSS = css(
+  mq({
+    display: 'flex',
+    alignItems: 'center',
+    width: ['100%', 'fit-content'],
+    fontSize: '1em',
+    border: lightBorder,
+  }),
+);
 
-const ButtonContainer = css(mq({
-  width: ['100%', 'fit-content']
-}))
+const ButtonContainer = css(
+  mq({
+    width: ['100%', 'fit-content'],
+  }),
+);
 
-
-console.log(ButtonWrapper);
 const Blurb = () => {
   return (
     <div css={AboutMe}>
@@ -84,15 +88,21 @@ const Blurb = () => {
           </LinkButton>
         </div>
       </div>
-      <div css={{ fontSize: '1.5em'}}>
+      <div css={{ fontSize: '1.5em' }}>
         <p>
           My name is Evan Pearson and I&apos;m a{' '}
           <span css={{ fontWeight: 'bold' }}>full-stack software engineer</span>
           . I build cool things throughout the stack, from performant SPAs to
-          eCommerce that converts. I have a passion for <span css={{ color: colors.pictonBlue }}>strategy, analytics, and building digital experiences</span> that customers{' '}
-          <span css={{ fontWeight: 'bold' }}>love</span>. 
+          eCommerce that converts. I have a passion for{' '}
+          <span css={{ color: colors.pictonBlue }}>
+            strategy, analytics, and building digital experiences
+          </span>{' '}
+          that customers <span css={{ fontWeight: 'bold' }}>love</span>.
         </p>
-        <p>I&apos;m looking for the next big thing to be apart of. When I&apos;m not coding, I&apos;m making music, adventuring, and getting my cold brew recipe just right.
+        <p>
+          I&apos;m looking for the next big thing to be apart of. When I&apos;m
+          not coding, I&apos;m making music, adventuring, and getting my cold
+          brew recipe just right.
         </p>
       </div>
     </div>

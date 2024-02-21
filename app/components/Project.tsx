@@ -10,38 +10,42 @@ import { lightBorder } from '@/styles';
 import Icon from './Icon';
 import { ProjectData } from '../../declarations';
 
+const mq = facepaint(['@media(min-width:405px)', '@media(min-width:710px)']);
 
-const mq = facepaint([
-  '@media(min-width:405px)',
-  '@media(min-width:710px)'
-])
+const projectWrapper = css(
+  mq({
+    border: lightBorder,
+    padding: '1em',
+    maxWidth: '731px',
+    '& img': {
+      height: ['220px', '300px', '300px'],
+      width: ['220px', '300px', '300px'],
+    },
+  }),
+);
 
-const projectWrapper = css(mq({
-  border: lightBorder,
-  padding: '1em',
-  maxWidth: '731px',
-  '& img': {
-    height: ['220px', '300px','300px'],
-    width: ['220px', '300px', '300px']
-  }
-}));
+const projectContentWrapper = css(
+  mq({
+    display: 'flex',
+    flexDirection: ['column', 'column', 'row'],
+    alignItems: ['center', 'center', 'flex-start'],
+  }),
+);
 
-const projectContentWrapper = css(mq({
-  display: 'flex',
-  flexDirection: ['column','column', 'row'],
-  alignItems: ['center', 'center', 'flex-start']
-}))
+const projectImage = css(
+  mq({ border: lightBorder, marginRight: ['0px', '10px'] }),
+);
 
-const projectImage = css(mq({ border: lightBorder, marginRight: ['0px','10px'] }))
-
-const projectTextWrapper = css(mq({
-  display: 'flex',
-  flexDirection: ['column-reverse','column-reverse', 'column'],
-  width: ['200px','300px', 'fit-content'],
-  '& :nth-child(1)': {
-    flexGrow: [0,1],
-  },
-}))
+const projectTextWrapper = css(
+  mq({
+    display: 'flex',
+    flexDirection: ['column-reverse', 'column-reverse', 'column'],
+    width: ['200px', '300px', 'fit-content'],
+    '& :nth-child(1)': {
+      flexGrow: [0, 1],
+    },
+  }),
+);
 
 const Project = ({
   title,
@@ -84,10 +88,8 @@ const Project = ({
 
   return (
     <div css={projectWrapper}>
-      <h2 css={{ margin: 0 , display: 'inline-block'}}>{title}</h2>
-      <div
-        css={projectContentWrapper}
-      >
+      <h2 css={{ margin: 0, display: 'inline-block' }}>{title}</h2>
+      <div css={projectContentWrapper}>
         <Image
           src={`/projects/${imageSlug}`}
           css={projectImage}

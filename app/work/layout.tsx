@@ -21,7 +21,7 @@ export default function Layout({ children }: Wrapped) {
           flexDirection: 'column',
           maxWidth: 'calc(731px + 4em)',
           minWidth: 'calc(320px - 4em)',
-          fontSize: '16px'
+          fontSize: '16px',
         }}
       >
         {children}

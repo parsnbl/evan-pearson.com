@@ -1,28 +1,24 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { css } from '@emotion/react';
 
 import Band from '@/components/Band';
+import LinkButton from '@/components/LinkButton';
+import Loading from './loading';
 import Project from '@/components/Project';
 import Tag from '@/components/Tag';
 
-import { css } from '@emotion/react';
-import facepaint from 'facepaint';
-
 import { colors, lightBorder } from '@/styles';
 import { ProjectData } from '../../declarations';
-import LinkButton from '@/components/LinkButton';
-import Loading from './loading';
 
 type TagCountsObject = { [index: string]: number };
 type TagActivesObject = { [index: string]: boolean };
 
-
 const TagWrapper = css({
   display: 'flex',
-  flexWrap: 'wrap'
-
-})
+  flexWrap: 'wrap',
+});
 
 const Page = () => {
   const [filterTags, setFilterTags] = useState<string[]>([]);
@@ -98,7 +94,9 @@ const Page = () => {
           borderRight: lightBorder,
         }}
       >
-        <h1 css={{fontSize: '2em', display: 'inline-block'}}>RECENT PROJECTS</h1>
+        <h1 css={{ fontSize: '2em', display: 'inline-block' }}>
+          RECENT PROJECTS
+        </h1>
         <div css={TagWrapper}>
           {Object.keys(tagCounts).map((elem) => (
             <Tag
@@ -126,7 +124,7 @@ const Page = () => {
       </Band>
       <Band innerCSS={{ display: 'flex', justifyContent: 'center' }}>
         <LinkButton buttonCSS={{ fontSize: '2em' }} href="/contact">
-          LET&apos;S TALK!
+          LET&apos;S DO THIS
         </LinkButton>
       </Band>
     </>

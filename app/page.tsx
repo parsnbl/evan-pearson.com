@@ -1,6 +1,5 @@
 'use client';
 
-
 import { colors, iconBackground, lightBorder } from '@/styles';
 
 import { css } from '@emotion/react';
@@ -16,25 +15,27 @@ import LinkButton from './components/LinkButton';
 import Hero from './components/Hero';
 
 const mq = facepaint([
-  '@media(min-width:384px)' //header flip point
-])
+  '@media(min-width:384px)', //header flip point
+]);
 
-const heroBandOuterCSS = css(mq({
-  minHeight: '60vh',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'flex-end',
-  marginTop: ['80px','56px'],
-  padding: '0px',
-  overflowY: 'hidden',
-  overflowX: 'hidden',
-  ...iconBackground,
-}));
+const heroBandOuterCSS = css(
+  mq({
+    minHeight: '60vh',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
+    marginTop: ['80px', '56px'],
+    padding: '0px',
+    overflowY: 'hidden',
+    overflowX: 'hidden',
+    ...iconBackground,
+  }),
+);
 
 const heroBandInnerCSS = css({
   maxHeight: '100%',
-  minHeight: 'fit-content'
-})
+  minHeight: 'fit-content',
+});
 
 const elevatorPitchOuterCSS = css({
   borderTop: `1px solid ${colors.platinum}`,
@@ -93,11 +94,9 @@ export default function Page() {
         <h2 css={{ paddingLeft: '32px', marginTop: 0 }}>FEATURED PROJECTS</h2>
         <div
           css={{
-            
             width: '100%',
             backgroundColor: colors.platinum,
             overflowX: 'auto',
-            
           }}
         >
           <div css={featuredProjectsWrapper}>
@@ -127,7 +126,7 @@ export default function Page() {
           <Skill skill="growth" />
           <Skill skill="cloud" />
           <Skill skill="martech" />
-          {/* <Skill skill="collaboration" /> */}
+          <Skill skill="collaboration" />
         </SkillsWrapper>
       </Band>
       <Band

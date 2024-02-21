@@ -6,8 +6,7 @@ import facepaint from 'facepaint';
 import Link from 'next/link';
 import { colors } from '@/styles';
 
-import { FlameKindling, Code, Zap, Target, Home } from 'lucide-react';
-
+import { FlameKindling, Code, Zap, Target } from 'lucide-react';
 
 const navContainer = css({
   display: 'flex',
@@ -35,14 +34,14 @@ const navCSS = css({
     fontFamily: 'Roboto Condensed',
   },
 });
-const mq = facepaint([
-  '@media(min-width:384px)'
-])
+const mq = facepaint(['@media(min-width:384px)']);
 
-const headerIcon = css(mq({
-  display: 'grid',
-  gridTemplateColumns: ['repeat(2, 1fr)', 'repeat(4, 1fr)' ]
-}))
+const headerIcon = css(
+  mq({
+    display: 'grid',
+    gridTemplateColumns: ['repeat(2, 1fr)', 'repeat(4, 1fr)'],
+  }),
+);
 
 {
   /* 

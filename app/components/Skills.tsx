@@ -10,14 +10,18 @@ import {
   CloudLightning,
   TrendingUp,
   Terminal,
-  Handshake
+  Handshake,
 } from 'lucide-react';
-import { colors, lightBorder } from '@/styles';
 
-<Handshake />
+import { colors, lightBorder } from '@/styles';
+import { YouTubeEmbed } from '@next/third-parties/google';
+
+import SkillList from './SkillList';
 import { SkillType, SkillsData } from '../../declarations';
 
-const skillsIcons = {
+<Handshake />;
+
+const skillsIcons: { [K in SkillType]: () => React.ReactNode } = {
   frontend: () => <Ratio />,
   backend: () => <Server />,
   data: () => <Database />,
@@ -25,7 +29,7 @@ const skillsIcons = {
   cloud: () => <CloudLightning />,
   growth: () => <TrendingUp />,
   languages: () => <Terminal />,
-  collaboration: () => <Handshake />
+  collaboration: () => <Handshake />,
 };
 
 const skillsCopy: SkillsData = {
@@ -37,7 +41,7 @@ const skillsCopy: SkillsData = {
       'SaSS',
       'Tailwind',
       'CSS Modules',
-      'Redux/Redux Toolkit',
+      'Redux/RTK',
       'React Router',
       'HTML5',
       'CSS3',
@@ -116,12 +120,11 @@ const skillsCopy: SkillsData = {
   },
   collaboration: {
     title: 'COLLABORATION',
-    skills: []
-  }
+    skills: [],
+  },
 };
 
 const baseSkillCSS = css({
-
   maxWidth: '335px',
   minWidth: '320px',
   height: '234px',
@@ -151,18 +154,18 @@ export const Skill = ({
   columns?: number;
   skillCSS?: FullCSSInterpolation;
 }) => {
-  const ulCSS = {
-    margin: '0px',
-    display: 'grid',
-    gridTemplateColumns: 'repeat(1, 1fr)',
-    '& li': {
-      listStyleType: '"▸  "',
-    },
-  };
+  // const ulCSS = {
+  //   margin: '0px',
+  //   display: 'grid',
+  //   gridTemplateColumns: 'repeat(1, 1fr)',
+  //   '& li': {
+  //     listStyleType: '"▸  "',
+  //   },
+  // };
 
-  if (columns) {
-    ulCSS.gridTemplateColumns = `repeat(${columns}, 1fr)`;
-  }
+  // if (columns) {
+  //   ulCSS.gridTemplateColumns = `repeat(${columns}, 1fr)`;
+  // }
   const subSkills = skillsCopy[skill].skills;
 
   return (
@@ -171,11 +174,21 @@ export const Skill = ({
         {skillsIcons[skill]()}
         <h3>&nbsp;{skillsCopy[skill].title}</h3>
       </div>
+      {skill === 'collaboration' ? (
+        <YouTubeEmbed videoid="limFtJ-sK1k" />
+      ) : (
+        <SkillList listItems={subSkills} columns={columns} />
+      )}
+
+      {/* 
+      
       <ul css={ulCSS}>
-        {subSkills.map((text) => (
-          <li key={crypto.randomUUID()}>{text}</li>
-        ))}
-      </ul>
+          {subSkills.map((text) => (
+            <li key={crypto.randomUUID()}>{text}</li>
+          ))}
+        </ul> 
+      
+      */}
     </div>
   );
 };

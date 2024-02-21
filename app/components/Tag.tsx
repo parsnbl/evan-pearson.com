@@ -18,6 +18,7 @@ const Tag = ({ tag, count, clickCallback, isActive }: TagProps) => {
   const tagCSS = {
     fontFamily: 'Roboto Mono',
     border: lightBorder,
+    cursor: 'pointer',
     marginRight: '.25em',
     fontSize: '.8em',
     display: 'inline-block',
@@ -30,9 +31,11 @@ const Tag = ({ tag, count, clickCallback, isActive }: TagProps) => {
 
   return (
     <div css={[tagCSS, conditional]} onClick={clickCallback}>
-      <div css={{display: 'flex', alignItems: 'center', whiteSpace:'nowrap'}}>
+      <div
+        css={{ display: 'flex', alignItems: 'center', whiteSpace: 'nowrap' }}
+      >
         {tag.toUpperCase()}{' '}
-      <span css={{ color: colors.pompAndPower }}>{count}</span>
+        <span css={{ color: colors.pompAndPower }}>{count}</span>
       </div>
     </div>
   );

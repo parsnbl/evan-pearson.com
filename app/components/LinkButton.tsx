@@ -14,7 +14,7 @@ interface LinkButtonProps {
   ext?: boolean;
 }
 
-const LinkButtonWrapper =  css({
+const LinkButtonWrapper = css({
   '& a:hover': {
     outline: 'none',
   },
@@ -22,7 +22,7 @@ const LinkButtonWrapper =  css({
     backgroundColor: colors.white,
     color: colors.black,
   },
-})
+});
 
 const LinkButtonCSS = css({
   TextAlign: 'center',
@@ -40,7 +40,7 @@ const LinkButtonCSS = css({
   ':hover': {
     boxShadow: `8px 8px ${colors.pictonBlue}`,
   },
-})
+});
 
 const LinkButton = ({
   children,
@@ -49,15 +49,22 @@ const LinkButton = ({
   href,
   ext = false,
 }: LinkButtonProps) => {
- 
   let linkProps = {};
   if (ext)
     linkProps = { ...linkProps, target: '_blank', rel: 'noreferrer noopener' };
 
   return (
-    <div css={ wrapperCSS ? css([LinkButtonWrapper, wrapperCSS]) : LinkButtonWrapper}>
+    <div
+      css={
+        wrapperCSS ? css([LinkButtonWrapper, wrapperCSS]) : LinkButtonWrapper
+      }
+    >
       <Link href={href} {...linkProps}>
-        <button css={ buttonCSS ? css([LinkButtonCSS, buttonCSS]): LinkButtonCSS}>{children}</button>
+        <button
+          css={buttonCSS ? css([LinkButtonCSS, buttonCSS]) : LinkButtonCSS}
+        >
+          {children}
+        </button>
       </Link>
     </div>
   );
