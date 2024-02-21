@@ -32,7 +32,8 @@ const config: Config = {
   moduleNameMapper: {
     '^@/(.*)$' : '<rootDir>/$1',
     '^@public/(.*)$': '<rootDir>/public/$1'
-  }
+  },
+  passWithNoTests: true
 };
 
 export default createJestConfig(config);

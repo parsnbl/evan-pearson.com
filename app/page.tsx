@@ -17,7 +17,10 @@ const mq = facepaint([
   '@media(min-width:384px)', //header flip point
 ]);
 
-const projectMq = facepaint(['@media(min-width:405px)', '@media(min-width:710px)']);
+const projectMq = facepaint([
+  '@media(min-width:405px)',
+  '@media(min-width:710px)',
+]);
 
 const heroBandOuterCSS = css(
   mq({
@@ -62,16 +65,18 @@ const projectsBandInnerCSS = css({
   paddingBottom: 0,
 });
 
-[ '762px', '1032px','2193px']
-const featuredProjectsWrapper = css(projectMq({
-  display: 'flex',
-  width: [ '762px', '1032px','2193px'],
-  '> *': {
-    margin: '5px 10px 5px 0px',
-    backgroundColor: colors.white,
-    boxShadow: '2px 2px 2px lightgray',
-  },
-}));
+['762px', '1032px', '2193px'];
+const featuredProjectsWrapper = css(
+  projectMq({
+    display: 'flex',
+    width: ['762px', '1032px', '2193px'],
+    '> *': {
+      margin: '5px 10px 5px 0px',
+      backgroundColor: colors.white,
+      boxShadow: '2px 2px 2px lightgray',
+    },
+  }),
+);
 
 const skillsBandOuterCSS = css({
   paddingTop: '20px',
