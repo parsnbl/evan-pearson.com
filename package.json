@@ -1,6 +1,6 @@
 {
   "name": "evan-pearson.com",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "My personal portfolio site.",
   "main": "index.js",
   "scripts": {
